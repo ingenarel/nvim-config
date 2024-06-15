@@ -1,4 +1,4 @@
-set number
+set number 
 set ignorecase 
 autocmd FocusLost,InsertLeave * w
 set clipboard=unnamedplus
