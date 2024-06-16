@@ -63,14 +63,22 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup(
 {
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
   config = function()
-    require('dashboard').setup {
-      -- config
-    }
+    require('dashboard').setup{
+	    theme='hyper',
+	    config = {
+    		header = {
+    		  '',
+		  'nvim idiot',
+    		  '',
+    		},
+	},
+}
   end,
   dependencies = { {'nvim-tree/nvim-web-devicons'}}
 }
