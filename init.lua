@@ -137,31 +137,19 @@
 	HighlightFor("FoldColumn", "#00FFC8", "NONE", "NONE")
 --loads the theme
 
-
-
---autocomplete shit
-	vim.api.nvim_set_keymap('i', '(', '()<Esc>i', { noremap = true, silent = true })
-	vim.api.nvim_set_keymap('i', '{', '{}<Esc>i', { noremap = true, silent = true })
-	vim.api.nvim_set_keymap('i', '{<CR>', '{<CR>}<Esc>O', { noremap = true, silent = true })
-	vim.api.nvim_set_keymap('i', '[', '[]<Esc>i', { noremap = true, silent = true })
-	vim.api.nvim_set_keymap('i', '<', '<><Esc>i', { noremap = true, silent = true })
-	vim.api.nvim_set_keymap('i', "'", "''<Esc>i", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap('i', '"', '""<Esc>i', { noremap = true, silent = true })
---autocomplete shit
-
-
-
 -- Set ignorecase option
 	vim.o.ignorecase = true	
 -- Set ignorecase option
 
--- uses the vim-plug plugin to load the nvim tree plugin
+-- uses the vim-plug plugin to load the nvim tree plugin, the webdevicons plugin,
+-- autopairs plugin
 	local vim = vim
 	local Plug = vim.fn['plug#']
 	
 	vim.call('plug#begin')
 	Plug('nvim-tree/nvim-web-devicons')
 	Plug('nvim-tree/nvim-tree.lua')
+	Plug('windwp/nvim-autopairs')
 	vim.call('plug#end')
 	
 	-- disable netrw at the very start of your init.lua
@@ -174,9 +162,30 @@
 	-- empty setup using defaults
 	require("nvim-tree").setup()
 	
+	-- Store the current state
+	_G.disable_in_visualblock = true
+	
+	-- Function to toggle the setting
+	_G.toggle_autopairs_visualblock = function()
+	    _G.disable_in_visualblock = not _G.disable_in_visualblock
+	    require('nvim-autopairs').setup({
+	        disable_in_visualblock = _G.disable_in_visualblock,
+	    })
+	    print("Autopairs Visualblock disabled:", _G.disable_in_visualblock)
+	end
+	
+	-- Initial setup for nvim-autopairs
+	require('nvim-autopairs').setup({
+	    disable_in_visualblock = _G.disable_in_visualblock,
+	})
+	
+	-- Map F3 key to toggle the setting
+	vim.api.nvim_set_keymap('n', '<F3>', ':lua toggle_autopairs_visualblock()<CR>', { noremap = true, silent = true })
+
 	-- maps the F2 key to toggle the nvim tree plugin
 	vim.api.nvim_set_keymap('n', '<F2>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
--- uses the vim-plug plugin to load the nvim tree plugin
+-- uses the vim-plug plugin to load the nvim tree plugin, the webdevicons plugin,
+-- autopairs plugin
 
 
 -- loads lazy plugin to load the vim dashboard plugin
@@ -203,9 +212,37 @@
 		    theme='hyper',
 		    config = {
 	    		header = {
-	    		  '',
-			  'nvim idiot',
-	    		  '',
+  				('                              ##                              '),
+  				('                            ##+##                             '),
+  				('     #######################+----##   ######################  '),
+  				('    ##-...................#+------+###-...................-#  '),
+  				('    ##-...................#+--------+#+...................-#  '),
+  				('     ###..............+###+-----------###-.............+####  '),
+  				('        ##..............+#+-------------#+.............##     '),
+  				('          ##-.............+#+-----------#+.............##     '),
+  				('        #  ###-.............+#+---------#+.............##     '),
+  				('        ########-.............+#+-------#+.............##     '),
+  				('        #--##--+##..............-#+-----#+.............##     '),
+  				('        #-..-##---##..............-#+---#+.............##     '),
+  				('     ####-....-##+-+##-.............-#+-#+.............##     '),
+  				('   ###+-#-......-##+-+##..............-##+.............###    '),
+  				(' ###+---#-.........+#+-+##-.............--.............#++##  '),
+  				('##+-----#-...........+#--+#+...........................#+--###'),
+  				(' ##+----#-.............#+---##.........................#++##  '),
+  				('   ###+-#-.............#+----+#+.......................###    '),
+  				('     ####-.............#+------+##.....................##     '),
+  				('       ##-.............#+--------+##...................##     '),
+  				('        #-.............#+----------+#+.................##     '),
+  				('        #-.............#+------------+#+-..............##     '),
+  				('        #-.............#+--------------+#+.............##     '),
+  				('        #-.............#+----------------+##...........##     '),
+  				('    ##+..................-#+-------------####+.........##     '),
+  				('    ##-...................#+----------+###   ##+.......##     '),
+  				('     ##------------------+#+--------+###       ###+++++##     '),
+  				('      ####################+-------+###            ####        '),
+  				('                          ##-----###                          '),
+  				('                            ##+##                             '),
+  				('                              ##                              '),
 	    		},
 		},
 	}
@@ -214,4 +251,5 @@
 	}
 	)
 -- loads lazy plugin to load the vim dashboard plugin
-
+                                                                                                    
+                                                                                                   
