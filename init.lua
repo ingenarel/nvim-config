@@ -20,7 +20,9 @@
 	vim.o.clipboard = "unnamedplus"
 --uses the system clipboard
 
-
+-- keep the scroll in the middle.
+	vim.o.scrolloff = 31
+-- keep the scroll in the middle.
 
 --autoreads the file so if a background change happens nvim detects it
 	vim.o.autoread = true
@@ -33,7 +35,7 @@
 -- Set ignorecase option
 
 -- uses the vim-plug plugin to load the nvim tree plugin, the webdevicons plugin,
--- autopairs plugin
+-- autopairs plugin, cyberdream, dashboard, and the colorizer plugin
 	local vim = vim
 	local Plug = vim.fn['plug#']
 	
@@ -85,4 +87,5 @@
 	vim.cmd("colorscheme cyberdream")
 	vim.o.cursorline = true
 -- uses the vim-plug plugin to load the nvim tree plugin, the webdevicons plugin,
--- autopairs plugin
+-- autopairs plugin, cyberdream, dashboard, and the colorizer plugin
+
