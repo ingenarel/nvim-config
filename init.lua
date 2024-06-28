@@ -86,4 +86,3 @@
 	vim.o.cursorline = true
 -- uses the vim-plug plugin to load the nvim tree plugin, the webdevicons plugin,
 -- autopairs plugin, cyberdream, dashboard, and the colorizer plugin
-
