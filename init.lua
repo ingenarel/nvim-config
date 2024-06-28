@@ -26,7 +26,16 @@
 	vim.o.autoread = true
 --autoreads the file so if a background change happens nvim detects it
 
-
+--change the current directory to the current file that's being edited
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype ~= 'netrw' then
+      vim.cmd('lcd %:p:h')
+    end
+  end,
+})
+--change the current directory to the current file that's being edited
 
 -- Set ignorecase option
 	vim.o.ignorecase = true	
