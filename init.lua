@@ -4,8 +4,6 @@
 	vim.o.statuscolumn = "%s %l %r "
 -- show the absolute line numbers and the relative line numbers
 
-
-
 -- autosaves the file
 	vim.cmd([[
 	  autocmd FocusLost,InsertLeave * :w!
