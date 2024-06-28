@@ -6,7 +6,7 @@
 
 -- autosaves the file
 	vim.cmd([[
-	  autocmd FocusLost,InsertLeave * :w!
+	  autocmd InsertLeave * :w!
 	]])
 -- autosaves the file
 
