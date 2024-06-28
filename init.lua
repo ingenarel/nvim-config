@@ -44,6 +44,7 @@
 	Plug('scottmckendry/cyberdream.nvim')
 	Plug('nvimdev/dashboard-nvim')
 	Plug('norcalli/nvim-colorizer.lua')
+	Plug('nvim-lualine/lualine.nvim')
 	vim.call('plug#end')
 	
 	-- disable netrw at the very start of your init.lua
@@ -84,5 +85,10 @@
 	vim.api.nvim_set_keymap('n', '<F2>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 	vim.cmd("colorscheme cyberdream")
 	vim.o.cursorline = true
+	require('lualine').setup(
+		{
+			options = { theme = 'molokai' }
+		}
+	)
 -- uses the vim-plug plugin to load the nvim tree plugin, the webdevicons plugin,
 -- autopairs plugin, cyberdream, dashboard, and the colorizer plugin
