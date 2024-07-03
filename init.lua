@@ -4,6 +4,13 @@
 	vim.o.statuscolumn = "%s %l %r "
 -- show the absolute line numbers and the relative line numbers
 
+-- tab changes
+    vim.opt.expandtab = true      -- Use spaces instead of tabs
+    vim.opt.tabstop = 4           -- Number of spaces that a <Tab> in the file counts for
+    vim.opt.shiftwidth = 4        -- Number of spaces to use for each step of (auto)indent
+    vim.opt.softtabstop = 4       -- Number of spaces that a <Tab> counts for while performing editing operations
+-- tab changes
+
 -- autosaves the file
 	vim.cmd([[
 	  autocmd InsertLeave * :w!
@@ -27,20 +34,19 @@
 --autoreads the file so if a background change happens nvim detects it
 
 --change the current directory to the current file that's being edited
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype ~= 'netrw' then
-      vim.cmd('lcd %:p:h')
-    end
-  end,
-})
+    vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = "*",
+      callback = function()
+        if vim.bo.filetype ~= 'netrw' then
+          vim.cmd('lcd %:p:h')
+        end
+      end,
+    })
 --change the current directory to the current file that's being edited
 
 -- Set ignorecase option
 	vim.o.ignorecase = true	
 -- Set ignorecase option
-
 -- uses the vim-plug plugin to load the nvim tree plugin, the webdevicons plugin,
 -- autopairs plugin, cyberdream, dashboard, and the colorizer plugin
 	local vim = vim
@@ -49,11 +55,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	vim.call('plug#begin')
 	Plug('nvim-tree/nvim-web-devicons')
 	Plug('nvim-tree/nvim-tree.lua')
-	Plug('windwp/nvim-autopairs')
 	Plug('scottmckendry/cyberdream.nvim')
 	Plug('nvimdev/dashboard-nvim')
 	Plug('norcalli/nvim-colorizer.lua')
 	Plug('nvim-lualine/lualine.nvim')
+   	Plug('windwp/nvim-autopairs')
 	vim.call('plug#end')
 	
 	-- disable netrw at the very start of your init.lua
@@ -71,24 +77,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	})
 	require("dashboard").setup()
 	require("colorizer").setup()
-	
-	-- Store the current state
-	_G.disable_in_visualblock = true
-	
-	-- Function to toggle the setting
-	_G.toggle_autopairs_visualblock = function()
-	    _G.disable_in_visualblock = not _G.disable_in_visualblock
-	    require('nvim-autopairs').setup({
-	        disable_in_visualblock = _G.disable_in_visualblock,
-	    })
-	    print("Autopairs Visualblock disabled:", _G.disable_in_visualblock)
-	end
-	
-	-- Initial setup for nvim-autopairs
-	require('nvim-autopairs').setup()
-	
-	-- Map F3 key to toggle the setting
-	vim.api.nvim_set_keymap('n', '<F3>', ':lua toggle_autopairs_visualblock()<CR>', { noremap = true, silent = true })
 
 	-- maps the F2 key to toggle the nvim tree plugin
 	vim.api.nvim_set_keymap('n', '<F2>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
@@ -98,6 +86,16 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		{
 			options = { theme = 'molokai' }
 		}
-	)
+	)    
+    require("nvim-autopairs").setup(
+    	{
+            disable_in_visualblock = true
+        }
+    )
+    local Rule = require('nvim-autopairs.rule')
+    local npairs = require('nvim-autopairs')
+    npairs.add_rule(
+        Rule("<", ">")
+    )
 -- uses the vim-plug plugin to load the nvim tree plugin, the webdevicons plugin,
 -- autopairs plugin, cyberdream, dashboard, and the colorizer plugin
