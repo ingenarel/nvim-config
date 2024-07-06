@@ -36,4 +36,17 @@
 	vim.o.ignorecase = true	
 -- Set ignorecase option
 
+-- fold options
+    vim.o.foldenable = true
+    vim.o.foldmethod = 'indent'
+    vim.o.foldlevel = 99
+    vim.o.foldcolumn = '1'
+-- fold options
 
+-- signcolumn?
+    vim.wo.signcolumn = yes
+-- signcolumn?
+
+-- set cursorline
+    vim.o.cursorline = true
+-- set cursorline
