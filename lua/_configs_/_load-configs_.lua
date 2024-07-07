@@ -10,12 +10,6 @@
     vim.opt.softtabstop = 4       -- Number of spaces that a <Tab> counts for while performing editing operations
 -- tab changes
 
--- autosaves the file
-	vim.cmd([[
-	  autocmd InsertLeave * :w!
-	]])
--- autosaves the file
-
 -- disable line wrap
 	vim.o.wrap = false
 -- disable line wrap
