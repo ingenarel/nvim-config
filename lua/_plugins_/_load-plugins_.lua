@@ -13,6 +13,7 @@ Plug("lukas-reineke/indent-blankline.nvim")
 Plug("neovim/nvim-lspconfig")
 Plug("williamboman/mason-lspconfig.nvim")
 Plug("williamboman/mason.nvim")
+Plug("kdheepak/lazygit.nvim")
 vim.call("plug#end")
 
 -- enable more colors
@@ -22,6 +23,7 @@ vim.call("plug#end")
 require("nvim-tree").setup()
 require("colorizer").setup()
 require("telescope").setup()
+-- require("lazygit").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
