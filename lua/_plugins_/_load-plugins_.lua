@@ -24,8 +24,4 @@ require("_plugins_._autopairs-config_")
 require("_plugins_._nvim-tree-config_")
 require("_plugins_._dashboard-config_")
 
--- 	-- disable netrw at the very start of your init.lua
---  	vim.g.loaded_netrw = 1
---  	vim.g.loaded_netrwPlugin = 1
--- 	-- disable netrw at the very start of your init.lua
 
