@@ -23,7 +23,6 @@ vim.call("plug#end")
 require("nvim-tree").setup()
 require("colorizer").setup()
 require("telescope").setup()
--- require("lazygit").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
