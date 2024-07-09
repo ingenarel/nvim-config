@@ -9,6 +9,7 @@ Plug("nvim-lualine/lualine.nvim")
 Plug("windwp/nvim-autopairs")
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim")
+Plug("lukas-reineke/indent-blankline.nvim")
 vim.call("plug#end")
 
 -- enable more colors
@@ -18,6 +19,7 @@ vim.call("plug#end")
 require("nvim-tree").setup()
 require("colorizer").setup()
 require("telescope").setup()
+require("ibl").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
