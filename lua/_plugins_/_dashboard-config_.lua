@@ -34,8 +34,8 @@ require("dashboard").setup(
             },
         },
         -- preview = {
-        --     command = "lolcat",
-        --     file_path = "~/.config/nvim/lua/_plugins_/karambit-lighter.txt",
+        --     command = "python",
+        --     file_path = "~/.config/nvim/lua/_plugins_/test.py",
         --     file_height = 19,
         --     file_width = 59,
         -- }
