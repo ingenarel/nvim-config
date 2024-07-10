@@ -10,14 +10,17 @@ Plug("windwp/nvim-autopairs") -- for pairing
 Plug("nvim-lua/plenary.nvim") -- a dependency for some plugins
 Plug("nvim-telescope/telescope.nvim") -- fzf on crack
 Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
--- lsp and autocompletion shit
-    Plug("neovim/nvim-lspconfig")
-    Plug("williamboman/mason-lspconfig.nvim")
-    Plug("williamboman/mason.nvim")
-
-    Plug("ms-jpq/coq_nvim", {["branch"]="coq"})
-    Plug("ms-jpq/coq.artifacts", {["branch"]="artifacts"})
--- lsp and autocompletion shit
+-- lsp, and autocompletion shit
+    -- lsp
+        Plug("neovim/nvim-lspconfig")
+        Plug("williamboman/mason-lspconfig.nvim")
+        Plug("williamboman/mason.nvim")
+    -- lsp
+    -- coq
+        Plug("ms-jpq/coq_nvim", {["branch"]="coq"})
+        Plug("ms-jpq/coq.artifacts", {["branch"]="artifacts"})
+    -- coq
+-- lsp, and autocompletion shit
 Plug("kdheepak/lazygit.nvim") -- git integreation
 vim.call("plug#end")
 
@@ -31,6 +34,6 @@ require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
 require("_plugins_._nvim-tree-config_")
 require("_plugins_._dashboard-config_")
-require("_plugins_._language-servers-config_")
+require("_plugins_._language-helps_")
 require("_plugins_._indent-line-config_")
 

@@ -10,7 +10,10 @@
     vim.opt.softtabstop = 4       -- Number of spaces that a <Tab> counts for while performing editing operations
 -- tab changes
 
-vim.o.wrap = false -- disable line wrap
+-- line wrap
+    vim.o.wrap = false 
+    vim.cmd('autocmd FileType markdown set wrap')
+-- line wrap
 
 vim.o.clipboard = "unnamedplus" --uses the system clipboard
 
