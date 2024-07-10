@@ -10,38 +10,24 @@
     vim.opt.softtabstop = 4       -- Number of spaces that a <Tab> counts for while performing editing operations
 -- tab changes
 
--- disable line wrap
-	vim.o.wrap = false
--- disable line wrap
+vim.o.wrap = false -- disable line wrap
 
---uses the system clipboard
-	vim.o.clipboard = "unnamedplus"
---uses the system clipboard
+vim.o.clipboard = "unnamedplus" --uses the system clipboard
 
--- keep the scroll in the middle.
-	vim.o.scrolloff = 31
--- keep the scroll in the middle.
+vim.o.scrolloff = 31 -- keep the scroll in the middle.
 
---autoreads the file so if a background change happens nvim detects it
-	vim.o.autoread = true
---autoreads the file so if a background change happens nvim detects it
+vim.o.autoread = true --autoreads the file so if a background change happens nvim detects it
 
--- Set ignorecase option
-	vim.o.ignorecase = true	
--- Set ignorecase option
+vim.o.ignorecase = true	-- Set ignorecase option
 
 -- fold options
     vim.o.foldenable = true
     vim.o.foldmethod = 'indent'
     vim.o.foldlevel = 99
-    --vim.o.foldcolumn = '1'
+    -- vim.o.foldcolumn = '1'
     -- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- fold options
 
--- signcolumn?
-    vim.wo.signcolumn = yes
--- signcolumn?
+vim.wo.signcolumn = yes -- signcolumn?
 
--- set cursorline
-    vim.o.cursorline = true
--- set cursorline
+vim.o.cursorline = true -- set cursorline
