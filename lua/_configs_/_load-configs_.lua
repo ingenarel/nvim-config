@@ -17,7 +17,7 @@
 
 vim.o.clipboard = "unnamedplus" --uses the system clipboard
 
-vim.o.scrolloff = 31 -- keep the scroll in the middle.
+vim.o.scrolloff = 33 -- keep the scroll in the middle.
 
 vim.o.autoread = true --autoreads the file so if a background change happens nvim detects it
 
