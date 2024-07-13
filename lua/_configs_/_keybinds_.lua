@@ -1,6 +1,9 @@
 vim.api.nvim_set_keymap("n", "<Space>", "<Nop>", {noremap = true})
 vim.g.mapleader=" "
 
+vim.api.nvim_set_keymap("n", ":", ";", {noremap = true})
+vim.api.nvim_set_keymap("n", ";", ":", {noremap = true})
+
 vim.api.nvim_set_keymap("n", "<leader>d", ":Dashboard<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>f", ":NvimTreeToggle<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>tf", ":Telescope find_files<CR>", {noremap = true})
