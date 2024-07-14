@@ -1,3 +1,5 @@
+-- show the absolute line numbers and the relative line numbers
+	vim.opt.number = true
 	vim.opt.relativenumber = true
 -- show the absolute line numbers and the relative line numbers
 

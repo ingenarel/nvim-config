@@ -22,6 +22,7 @@ Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
     -- coq
 -- lsp, and autocompletion shit
 Plug("voldikss/vim-floaterm")
+Plug("wakatime/vim-wakatime")
 vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors
