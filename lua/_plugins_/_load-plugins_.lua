@@ -21,7 +21,7 @@ Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
         Plug("ms-jpq/coq.artifacts", {["branch"]="artifacts"})
     -- coq
 -- lsp, and autocompletion shit
-Plug("kdheepak/lazygit.nvim") -- git integreation
+Plug("voldikss/vim-floaterm")
 vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors

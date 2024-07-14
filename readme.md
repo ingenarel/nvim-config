@@ -3,12 +3,9 @@
 - clone this bitch.
 - install vim-plug from the official repo
     https://github.com/junegunn/vim-plug
+- make sure you have lazygit installed.
+- also make sure that you have yazi installed. cz that's what i'm using for the file manager.
 - use command `PlugUpdate`
 - run `COQdeps` if it tells you to.
 - if running for the first time, mason should start to install all the language servers. run `:Mason` to see the process.
 
-<!--- for installing language servers:-->
-<!--    ```-->
-<!--    MasonUpdate pyright-->
-<!--    ``` -->
-- need to have lazygit installed for the lazygit plugin to work.
