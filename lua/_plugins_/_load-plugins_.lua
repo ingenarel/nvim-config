@@ -2,7 +2,6 @@ local vim = vim
 local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 Plug("nvim-tree/nvim-web-devicons") -- a dependency for some plugins
-Plug("nvim-tree/nvim-tree.lua") -- file browser
 Plug("nvimdev/dashboard-nvim") -- dashboard
 Plug("norcalli/nvim-colorizer.lua") -- for showing colors
 Plug("nvim-lualine/lualine.nvim") --  the statusline below

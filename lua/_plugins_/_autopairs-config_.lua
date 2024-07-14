@@ -1,6 +1,6 @@
 require("nvim-autopairs").setup({
         disable_in_visualblock = true,
-        ignored_next_char = nil
+        -- ignored_next_char = nil
     }
 )
 

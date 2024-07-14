@@ -47,3 +47,4 @@ vim.api.nvim_set_hl(0, "TabLineSel", {fg="#FF4081", bold=true})
 vim.api.nvim_set_hl(0, "Folded", {fg="#00FFC8", italic=true})
 vim.api.nvim_set_hl(0, "FoldColumn", {fg="#00FFC8"})
 
+-- this theme is actually a custom version of https://github.com/thedenisnikulin/vim-cyberpunk
