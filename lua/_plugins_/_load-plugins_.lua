@@ -26,12 +26,10 @@ vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors
 
-require("nvim-tree").setup()
 require("telescope").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
-require("_plugins_._nvim-tree-config_")
 require("_plugins_._dashboard-config_")
 require("_plugins_._language-helps_")
 require("_plugins_._indent-line-config_")
