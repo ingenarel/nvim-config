@@ -18,3 +18,12 @@ function SaveAndSource()
     vim.cmd("source%")
 end
 vim.api.nvim_set_keymap("n", "<leader>R", ":lua SaveAndSource()<CR>", {noremap=true})
+
+function UPDATEALLSHIT()
+    vim.cmd("PlugUpgrade")
+    vim.cmd("PlugClean")
+    vim.cmd("PlugUpdate")
+    vim.cmd("Mason")
+    vim.cmd("MasonUpdate")
+end
+vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true})

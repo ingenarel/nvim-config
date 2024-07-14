@@ -1,5 +1,3 @@
--- show the absolute line numbers and the relative line numbers
-	vim.opt.nu = true
 	vim.opt.relativenumber = true
 -- show the absolute line numbers and the relative line numbers
 
@@ -11,7 +9,7 @@
 -- tab changes
 
 -- line wrap
-    vim.o.wrap = false 
+    vim.o.wrap = false
     vim.cmd('autocmd FileType markdown set wrap')
 -- line wrap
 
@@ -30,7 +28,5 @@ vim.o.ignorecase = true	-- Set ignorecase option
     -- vim.o.foldcolumn = '1'
     -- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- fold options
-
-vim.wo.signcolumn = yes -- signcolumn?
 
 vim.o.cursorline = true -- set cursorline
