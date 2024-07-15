@@ -15,6 +15,11 @@ Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
         Plug("williamboman/mason-lspconfig.nvim")
         Plug("williamboman/mason.nvim")
     -- lsp
+    -- dap
+        Plug("mfussenegger/nvim-dap")
+        Plug("nvim-neotest/nvim-nio")
+        Plug("rcarriga/nvim-dap-ui")
+    -- dap
     -- coq
         Plug("ms-jpq/coq_nvim", {["branch"]="coq"})
         Plug("ms-jpq/coq.artifacts", {["branch"]="artifacts"})
@@ -29,6 +34,7 @@ vim.opt.termguicolors = true -- enable more colors
 
 require("telescope").setup()
 require("focus").setup()
+require("dapui").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
