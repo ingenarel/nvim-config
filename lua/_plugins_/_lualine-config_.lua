@@ -1,5 +1,3 @@
-require('lualine').setup({
-        options = { theme = 'molokai' }
-    }
-)    
-
+require('lualine').setup{
+    options = { theme = 'molokai' }
+}

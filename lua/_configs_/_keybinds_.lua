@@ -34,3 +34,5 @@ function UPDATEALLSHIT()
     vim.cmd("MasonUpdate")
 end
 vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true})
+
+vim.api.nvim_set_keymap("n", "<leader>w", ":lua require('nvim-window').pick()<CR>", {noremap=true})

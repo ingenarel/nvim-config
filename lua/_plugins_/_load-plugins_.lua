@@ -28,13 +28,14 @@ Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
 Plug("voldikss/vim-floaterm")
 Plug("wakatime/vim-wakatime")
 Plug("nvim-focus/focus.nvim")
+Plug("https://gitlab.com/yorickpeterse/nvim-window.git")
 vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors
 
 require("telescope").setup()
-require("focus").setup()
 require("dapui").setup()
+-- require("nvim-window").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
@@ -42,4 +43,4 @@ require("_plugins_._dashboard-config_")
 require("_plugins_._language-helps_")
 require("_plugins_._indent-line-config_")
 require("_plugins_._colorizer-config_")
-
+require("_plugins_._focus-config_")

@@ -1,9 +1,7 @@
-require("ibl").setup({
-        exclude = {
-            filetypes = {
-                "dashboard"
-            }
+require("ibl").setup{
+    exclude = {
+        filetypes = {
+            "dashboard"
         }
     }
-)
-
+}
