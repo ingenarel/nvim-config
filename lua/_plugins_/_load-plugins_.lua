@@ -22,11 +22,13 @@ Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
 -- lsp, and autocompletion shit
 Plug("voldikss/vim-floaterm")
 Plug("wakatime/vim-wakatime")
+Plug("nvim-focus/focus.nvim")
 vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors
 
 require("telescope").setup()
+require("focus").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
