@@ -1,6 +1,5 @@
 vim.api.nvim_set_hl(0, "Normal", {fg="#FF0055", bg="NONE"})
 vim.api.nvim_set_hl(0, "Visual", {reverse=true})
-vim.api.nvim_set_hl(0, "ColorColumn", {fg="#ff0055"})
 vim.api.nvim_set_hl(0, "LineNr", {fg="#ff0055"})
 vim.api.nvim_set_hl(0, "SignColumn", {fg="#00FFC8"})
 vim.api.nvim_set_hl(0, "VertSplit", {fg="#FF0055", bg="#101116"})
@@ -46,5 +45,8 @@ vim.api.nvim_set_hl(0, "TabLine", {fg="#FF4081"})
 vim.api.nvim_set_hl(0, "TabLineSel", {fg="#FF4081", bold=true})
 vim.api.nvim_set_hl(0, "Folded", {fg="#00FFC8", italic=true})
 vim.api.nvim_set_hl(0, "FoldColumn", {fg="#00FFC8"})
+vim.api.nvim_set_hl(0, "CursorLine", {bg="#4a0000"})
+vim.api.nvim_set_hl(0, "CursorColumn", {bg="#4a0000"})
+vim.api.nvim_set_hl(0, "CursorLineNr", {bg="#4a0000"})
 
 -- this theme is actually a custom version of https://github.com/thedenisnikulin/vim-cyberpunk
