@@ -8,4 +8,4 @@
 - use command `PlugUpdate`
 - run `COQdeps` if it tells you to.
 - if running for the first time, mason should start to install all the language servers. run `:Mason` to see the process.
-
+- install debugpy for python

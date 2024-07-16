@@ -19,6 +19,7 @@ Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
         Plug("mfussenegger/nvim-dap")
         Plug("nvim-neotest/nvim-nio")
         Plug("rcarriga/nvim-dap-ui")
+        Plug("mfussenegger/nvim-dap-python")
     -- dap
     -- coq
         Plug("ms-jpq/coq_nvim", {["branch"]="coq"})

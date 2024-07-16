@@ -2,10 +2,10 @@ require("mason").setup()
 
 require("mason-lspconfig").setup {
     ensure_installed = {
-    "pyright", -- Python
-    "clangd", -- C
-    "lua_ls", --lua
-    "bashls", --bash
+    "pyright", -- Python lsp
+    "clangd", -- C lsp
+    "lua_ls", --lua lsp
+    "bashls", --bash lsp
     }
 }
 
@@ -24,6 +24,9 @@ local lspconfig = require("lspconfig")
     lspconfig.clangd.setup{}
     lspconfig.bashls.setup{}
 
+require("dap-python").setup("python")
+
 vim.g.coq_settings = {
 	auto_start = "shut-up"
 }
+
