@@ -25,10 +25,11 @@ vim.o.ignorecase = true	-- Set ignorecase option
 
 -- fold options
     vim.o.foldenable = true
-    vim.o.foldmethod = 'indent'
     vim.o.foldlevel = 99
     -- vim.o.foldcolumn = '1'
     -- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- fold options
 
 vim.o.cursorline = true -- set cursorline
+
+vim.opt.colorcolumn = "80"
