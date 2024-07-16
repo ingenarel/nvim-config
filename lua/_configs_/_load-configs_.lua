@@ -33,4 +33,5 @@ vim.o.ignorecase = true	-- Set ignorecase option
 vim.o.cursorline = true -- set cursorline
 vim.opt.cursorcolumn = true
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
+
