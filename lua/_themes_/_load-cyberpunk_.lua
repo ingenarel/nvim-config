@@ -1,7 +1,10 @@
 vim.api.nvim_set_hl(0, "Normal", {fg="#FF0055", bg="NONE"})
 vim.api.nvim_set_hl(0, "Visual", {reverse=true})
 vim.api.nvim_set_hl(0, "LineNr", {fg="#ff0055"})
+
 vim.api.nvim_set_hl(0, "SignColumn", {fg="#00FFC8"})
+vim.api.nvim_set_hl(0, "ColorColumn", {bg="#3c6e3a"})
+
 vim.api.nvim_set_hl(0, "VertSplit", {fg="#FF0055", bg="#101116"})
 vim.api.nvim_set_hl(0, "IncSearch", {bg="#283593"})
 vim.api.nvim_set_hl(0, "Search", {bg="#283593"})
@@ -45,8 +48,11 @@ vim.api.nvim_set_hl(0, "TabLine", {fg="#FF4081"})
 vim.api.nvim_set_hl(0, "TabLineSel", {fg="#FF4081", bold=true})
 vim.api.nvim_set_hl(0, "Folded", {fg="#00FFC8", italic=true})
 vim.api.nvim_set_hl(0, "FoldColumn", {fg="#00FFC8"})
-vim.api.nvim_set_hl(0, "CursorLine", {bg="#4a0000"})
-vim.api.nvim_set_hl(0, "CursorColumn", {bg="#4a0000"})
-vim.api.nvim_set_hl(0, "CursorLineNr", {bg="#4a0000"})
+
+vim.api.nvim_set_hl(0, "CursorLine", {bg="#2e2e2e"})
+-- vim.api.nvim_set_hl(0, "CursorLine", {reverse=true})
+vim.api.nvim_set_hl(0, "CursorColumn", {bg="#2e2e2e"})
+-- vim.api.nvim_set_hl(0, "CursorColumn", {reverse=true})
+vim.api.nvim_set_hl(0, "CursorLineNr", {bg="#2e2e2e"})
 
 -- this theme is actually a custom version of https://github.com/thedenisnikulin/vim-cyberpunk
