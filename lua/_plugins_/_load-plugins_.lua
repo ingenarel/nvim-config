@@ -11,37 +11,36 @@ Plug("nvim-telescope/telescope.nvim") -- fzf on crack
 Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
 -- lsp, and autocompletion shit
     -- lsp
-        Plug("neovim/nvim-lspconfig")
-        Plug("williamboman/mason-lspconfig.nvim")
-        Plug("williamboman/mason.nvim")
+        Plug("neovim/nvim-lspconfig") -- config for lsp
+        Plug("williamboman/mason-lspconfig.nvim") -- lspconfig but with mason
+        Plug("williamboman/mason.nvim") -- mason, the lsp, dap, linter, and formatter manager
     -- lsp
     -- dap
-        Plug("mfussenegger/nvim-dap")
-        Plug("nvim-neotest/nvim-nio")
-        Plug("rcarriga/nvim-dap-ui")
-        Plug("mfussenegger/nvim-dap-python")
+        Plug("mfussenegger/nvim-dap") -- nvim debug adapter protocol
+        Plug("nvim-neotest/nvim-nio") -- needed for dap ui
+        Plug("rcarriga/nvim-dap-ui") -- ui for the nvim dap
+        Plug("mfussenegger/nvim-dap-python") -- dap configs for python
     -- dap
     -- coq
-        Plug("ms-jpq/coq_nvim", {["branch"]="coq"})
-        Plug("ms-jpq/coq.artifacts", {["branch"]="artifacts"})
+        Plug("ms-jpq/coq_nvim", {["branch"]="coq"}) -- coq, the autocompletion plugin
+        Plug("ms-jpq/coq.artifacts", {["branch"]="artifacts"}) -- coq snippets
     -- coq
 -- lsp, and autocompletion shit
-Plug("voldikss/vim-floaterm")
-Plug("wakatime/vim-wakatime")
-Plug("nvim-focus/focus.nvim")
-Plug("https://gitlab.com/yorickpeterse/nvim-window.git")
+Plug("voldikss/vim-floaterm") -- floaterm, the floating terminal emulator in neovim
+Plug("wakatime/vim-wakatime") -- wakatime plugin for tracking my time
+Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
+Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers
 vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors
 
 require("telescope").setup()
 require("dapui").setup()
--- require("nvim-window").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
 require("_plugins_._dashboard-config_")
-require("_plugins_._language-helps_")
+require("_plugins_._language-helps_") -- config that has my lsp, dap and autocompletion config
 require("_plugins_._indent-line-config_")
 require("_plugins_._colorizer-config_")
 require("_plugins_._focus-config_")
