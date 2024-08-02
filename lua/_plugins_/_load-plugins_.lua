@@ -30,6 +30,7 @@ Plug("voldikss/vim-floaterm") -- floaterm, the floating terminal emulator in neo
 Plug("wakatime/vim-wakatime") -- wakatime plugin for tracking my time
 Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
 Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers
+Plug("folke/which-key.nvim") -- for keybindings help
 vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors
