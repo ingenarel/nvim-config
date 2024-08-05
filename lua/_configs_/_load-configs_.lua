@@ -10,11 +10,6 @@
     vim.opt.softtabstop = 4       -- Number of spaces that a <Tab> counts for while performing editing operations
 -- tab changes
 
--- line wrap
-    vim.o.wrap = false
-    vim.cmd('autocmd FileType markdown set wrap')
--- line wrap
-
 vim.o.clipboard = "unnamedplus" --uses the system clipboard
 
 vim.o.scrolloff = 33 -- keep the scroll in the middle.
