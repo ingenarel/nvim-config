@@ -18,7 +18,7 @@ Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
     -- dap
         Plug("mfussenegger/nvim-dap") -- nvim debug adapter protocol
         Plug("nvim-neotest/nvim-nio") -- needed for dap ui
-        Plug("rcarriga/nvim-dap-ui") -- ui for the nvim dap
+        Plug("rcarriga/nvim-dap-ui") -- ui for the nvim dap, need to configure it.
         Plug("mfussenegger/nvim-dap-python") -- dap configs for python
     -- dap
     -- coq
@@ -31,12 +31,14 @@ Plug("wakatime/vim-wakatime") -- wakatime plugin for tracking my time
 Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
 Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers
 Plug("folke/which-key.nvim") -- for keybindings help
+Plug("echasnovski/mini.animate") -- for some stupid animations
 vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors
 
 require("telescope").setup()
 require("dapui").setup()
+require("mini.animate").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
