@@ -22,9 +22,9 @@ require("dashboard").setup{
            --     "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⣌⠷⣄⣀⣀⣠⠶⠁⠸⡄",
            --     "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠓⠦⠤⠤⠤⠶⠦⢄⡧",
            -- },
-           packages = {enabled=false},
-           project = {enable=false},
-           mru = {limit=30},
+           -- packages = {enabled=false},
+           -- project = {enable=false},
+           -- mru = {limit=30},
            footer = {
                "",
                "Live",
@@ -32,12 +32,12 @@ require("dashboard").setup{
                "But for her."
            },
        },
-    preview = {
-        command = "lolcat",
-        file_path = "~/.config/nvim/lua/_plugins_/karambit-lighter.txt",
-        file_height = 19,
-        file_width = 59,
-    }
+--     preview = {
+--         command = "lolcat",
+--         file_path = "~/.config/nvim/lua/_plugins_/karambit-lighter.txt",
+--         file_height = 19,
+--         file_width = 59,
+--     }
 }
 
 -- "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣴⣶⣿⣯⣭⣭⠭⠭⠭⠭⢍⣙⣛⠒⠢⠤⢄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
