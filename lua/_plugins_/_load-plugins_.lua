@@ -31,14 +31,12 @@ Plug("wakatime/vim-wakatime") -- wakatime plugin for tracking my time
 Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
 Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers
 Plug("folke/which-key.nvim") -- for keybindings help
-Plug("echasnovski/mini.animate") -- for some stupid animations
 vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors
 
 require("telescope").setup()
 require("dapui").setup()
-require("mini.animate").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
