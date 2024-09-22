@@ -1,3 +1,8 @@
+-- leader map
+    vim.api.nvim_set_keymap("n", "<Space>", "<Nop>", {noremap=true})
+    vim.g.mapleader=" "
+-- leader map
+
 function SaveAndSource()
     vim.cmd("w")
     vim.cmd("source%")
@@ -16,13 +21,9 @@ function UPDATEALLSHIT()
     vim.cmd("PlugUpdate")
     vim.cmd("Mason")
     vim.cmd("MasonUpdate")
+    vim.cmd("FloatermNew --width=0.5 --height=0.5 --title=Debugpy_Update --titleposition=center pip3 install debugpy -U")
 end
 vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true})
-
--- leader map
-    vim.api.nvim_set_keymap("n", "<Space>", "<Nop>", {noremap=true})
-    vim.g.mapleader=" "
--- leader map
 
 --remappping
     vim.api.nvim_set_keymap("n", ":", ";", {noremap=true})
