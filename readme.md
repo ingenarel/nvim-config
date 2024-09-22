@@ -4,7 +4,7 @@
 - clone this bitch.
 - install vim-plug from the official repo
     https://github.com/junegunn/vim-plug
-- make sure you have nodejs, debugpy, ripgrep, and nerdfonts installed. a terminal with truecolor support is also recommended. i use kitty in linux and windows terminal in windows.
+- make sure you have nodejs, python, ripgrep, and nerdfonts installed. a terminal with truecolor support is also recommended. i use kitty in linux and windows terminal in windows.
 - yazi is being used as a file manager and i'm also using lazygit. so you should install those too.
 - use command `PlugUpdate`
 - run `COQdeps` if it tells you to.
