@@ -27,7 +27,6 @@ Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
     -- coq
 -- lsp, and autocompletion shit
 Plug("voldikss/vim-floaterm") -- floaterm, the floating terminal emulator in neovim
-Plug("wakatime/vim-wakatime") -- wakatime plugin for tracking my time
 Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
 Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers
 Plug("folke/which-key.nvim") -- for keybindings help
