@@ -48,10 +48,18 @@ vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true})
     vim.api.nvim_set_keymap("n", "<leader>gc",         ":Telescope git_commits<CR>", {noremap=true})
     vim.api.nvim_set_keymap("n", "<leader>gs",         ":Telescope git_status<CR>", {noremap=true})
 -- git
+-- parenthesis
+    vim.api.nvim_set_keymap("n", "<leader>px", "mx%x`xx", {noremap=true}) -- remove parenthesis
+    vim.api.nvim_set_keymap("n", "<leader>p(", "mx%r)`xr(", {noremap=true}) -- change parenthesis to ()
+    vim.api.nvim_set_keymap("n", "<leader>p)", "mx%r)`xr(", {noremap=true}) -- change parenthesis to ()
+    vim.api.nvim_set_keymap("n", "<leader>p[", "mx%r]`xr[", {noremap=true}) -- change parenthesis to []
+    vim.api.nvim_set_keymap("n", "<leader>p]", "mx%r]`xr[", {noremap=true}) -- change parenthesis to []
+    vim.api.nvim_set_keymap("n", "<leader>p{", "mx%r}`xr{", {noremap=true}) -- change parenthesis to {}
+    vim.api.nvim_set_keymap("n", "<leader>p}", "mx%r}`xr{", {noremap=true}) -- change parenthesis to {}
+-- parenthesis
 
 vim.api.nvim_set_keymap("n", "<leader>D",  ":Dashboard<CR>", {noremap=true}) -- opens the dashboard
 vim.api.nvim_set_keymap("n", "<leader>d",  ":lua require('dapui').toggle()<CR>", {noremap=true}) -- debug thing ui toggle
 vim.api.nvim_set_keymap("n", "<leader>lw", ":set wrap!<CR>", {noremap=true}) -- wrap on off (just for that window)
 vim.api.nvim_set_keymap("n", "<leader>w",  ":lua require('nvim-window').pick()<CR>", {noremap=true}) -- pick a window fast
-vim.api.nvim_set_keymap("n", "<leader>sx", "mx%x`xx", {noremap=true}) -- remove parenthesis
 vim.api.nvim_set_keymap("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", {noremap=true}) -- lsp rename go brrrrrr
