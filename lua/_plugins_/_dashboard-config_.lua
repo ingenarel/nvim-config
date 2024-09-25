@@ -27,11 +27,6 @@ require("dashboard").setup{
                 action = "Telescope",
                 key = "t"
             },
-            {
-                desc = "Update",
-                action = "<F5>",
-                key = "u"
-            },
-        }
+        },
     },
 }
