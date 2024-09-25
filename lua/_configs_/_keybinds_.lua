@@ -39,9 +39,15 @@ vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true})
 -- Telescope
 -- terminal
     vim.api.nvim_set_keymap("n", "<leader>f",         ":FloatermNew --width=0.95 --height=1.0 --title=YAZI --titleposition=center --opener=edit yazi<CR>", {noremap=true})
-    vim.api.nvim_set_keymap("n", "<leader>g",         ":FloatermNew --width=0.9 --height=0.9 --title=LAZYGIT --titleposition=center lazygit<CR>", {noremap=true})
     vim.api.nvim_set_keymap("n", "<leader><leader>t", ":FloatermNew --width=1.0 --height=0.9 --title=TERMINAL --titleposition=center<CR>", {noremap=true})
 -- terminal
+-- git
+    vim.api.nvim_set_keymap("n", "<leader>gg",         ":FloatermNew --width=0.9 --height=0.9 --title=LAZYGIT --titleposition=center lazygit<CR>", {noremap=true})
+    vim.api.nvim_set_keymap("n", "<leader>gf",         ":Telescope git_files<CR>", {noremap=true})
+    vim.api.nvim_set_keymap("n", "<leader>gb",         ":Telescope git_branches<CR>", {noremap=true})
+    vim.api.nvim_set_keymap("n", "<leader>gc",         ":Telescope git_commits<CR>", {noremap=true})
+    vim.api.nvim_set_keymap("n", "<leader>gs",         ":Telescope git_status<CR>", {noremap=true})
+-- git
 
 vim.api.nvim_set_keymap("n", "<leader>D",  ":Dashboard<CR>", {noremap=true}) -- opens the dashboard
 vim.api.nvim_set_keymap("n", "<leader>d",  ":lua require('dapui').toggle()<CR>", {noremap=true}) -- debug thing ui toggle
