@@ -30,12 +30,14 @@ Plug("voldikss/vim-floaterm") -- floaterm, the floating terminal emulator in neo
 Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
 Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers
 Plug("folke/which-key.nvim") -- for keybindings help
+Plug("jiaoshijie/undotree") -- undo?
 vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors
 
 require("telescope").setup()
 require("dapui").setup()
+require("undotree").setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")

@@ -63,3 +63,4 @@ vim.api.nvim_set_keymap("n", "<leader>d",  ":lua require('dapui').toggle()<CR>",
 vim.api.nvim_set_keymap("n", "<leader>lw", ":set wrap!<CR>", {noremap=true}) -- wrap on off (just for that window)
 vim.api.nvim_set_keymap("n", "<leader>w",  ":lua require('nvim-window').pick()<CR>", {noremap=true}) -- pick a window fast
 vim.api.nvim_set_keymap("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", {noremap=true}) -- lsp rename go brrrrrr
+vim.keymap.set("n", "<leader>u", require('undotree').toggle, { noremap = true})
