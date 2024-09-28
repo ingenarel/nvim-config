@@ -51,11 +51,11 @@ vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true})
 -- parenthesis
     vim.api.nvim_set_keymap("n", "<leader>px", "mx%x`xx", {noremap=true}) -- remove parenthesis
     vim.api.nvim_set_keymap("n", "<leader>p(", "mx%r)`xr(", {noremap=true}) -- change parenthesis to ()
-    vim.api.nvim_set_keymap("n", "<leader>p)", "mx%r)`xr(", {noremap=true}) -- change parenthesis to ()
+    vim.api.nvim_set_keymap("n", "<leader>p)", "mx%r(`xr)", {noremap=true}) -- change parenthesis to ()
     vim.api.nvim_set_keymap("n", "<leader>p[", "mx%r]`xr[", {noremap=true}) -- change parenthesis to []
-    vim.api.nvim_set_keymap("n", "<leader>p]", "mx%r]`xr[", {noremap=true}) -- change parenthesis to []
+    vim.api.nvim_set_keymap("n", "<leader>p]", "mx%r[`xr]", {noremap=true}) -- change parenthesis to []
     vim.api.nvim_set_keymap("n", "<leader>p{", "mx%r}`xr{", {noremap=true}) -- change parenthesis to {}
-    vim.api.nvim_set_keymap("n", "<leader>p}", "mx%r}`xr{", {noremap=true}) -- change parenthesis to {}
+    vim.api.nvim_set_keymap("n", "<leader>p}", "mx%r{`xr}", {noremap=true}) -- change parenthesis to {}
 -- parenthesis
 
 vim.api.nvim_set_keymap("n", "<leader>D",  ":Dashboard<CR>", {noremap=true}) -- opens the dashboard
