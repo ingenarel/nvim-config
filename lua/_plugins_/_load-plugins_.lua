@@ -4,6 +4,7 @@ vim.call('plug#begin')
 Plug("nvim-tree/nvim-web-devicons") -- a dependency for some plugins
 Plug("nvimdev/dashboard-nvim") -- dashboard
 Plug("norcalli/nvim-colorizer.lua") -- for showing colors
+Plug("MarcosTypeAP/color-picker.nvim") -- colorpicker
 Plug("nvim-lualine/lualine.nvim") --  the statusline below
 Plug("windwp/nvim-autopairs") -- for pairing
 Plug("nvim-lua/plenary.nvim") -- a dependency for some plugins
@@ -43,5 +44,5 @@ require("_plugins_._autopairs-config_")
 require("_plugins_._dashboard-config_")
 require("_plugins_._language-helps_") -- config that has my lsp, dap and autocompletion config
 require("_plugins_._indent-line-config_")
-require("_plugins_._colorizer-config_")
+require("_plugins_._color-help-config_")
 require("_plugins_._focus-config_")
