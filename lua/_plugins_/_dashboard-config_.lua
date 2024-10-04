@@ -10,8 +10,14 @@ require("dashboard").setup{
             {
                 icon = "󰈞 ",
                 desc = "Find",
-                action = "Telescope git_files",
+                action = "Telescope find_files",
                 key = "f"
+            },
+            {
+                icon = "󰈞 ",
+                desc = "Find Git Files",
+                action = "Telescope git_files",
+                key = "F"
             },
             {
                 icon = " ",
