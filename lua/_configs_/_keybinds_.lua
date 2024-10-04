@@ -16,12 +16,12 @@ end
 vim.api.nvim_set_keymap("n", "<leader>cd", ":lua ChangeDirectoryToCurrentAndShow()<CR>", {noremap=true})
 
 function UPDATEALLSHIT()
-    vim.cmd("PlugUpgrade")
-    vim.cmd("PlugClean")
-    vim.cmd("PlugUpdate")
-    vim.cmd("Mason")
-    vim.cmd("MasonUpdate")
-    vim.cmd("FloatermNew --width=0.5 --height=0.5 --title=Debugpy_Update --titleposition=center pip3 install debugpy -U")
+    vim.cmd("PlugUpgrade") -- upgrades plug
+    vim.cmd("PlugClean") -- delets plugin that's not being used
+    vim.cmd("PlugUpdate") -- updates plugins
+    vim.cmd("Mason") -- opens up mason
+    vim.cmd("MasonUpdate") -- updates mason's registries
+    vim.cmd("FloatermNew --width=0.5 --height=0.5 --title=Debugpy_Update --titleposition=center pip3 install debugpy -U") -- install debugpy if not installed, if it is, try to update it
 end
 vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true})
 
@@ -60,36 +60,46 @@ vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true})
 
 -- color-picker
     -- replace
-        vim.keymap.set("n", "<leader>cprr", require('color-picker').replace) -- color picker replace normal
-        vim.keymap.set("n", "<leader>cpr2", function() require('color-picker').replace{height=20, width=40} end) -- color picker replace 2 size
-        vim.keymap.set("n", "<leader>cpr3", function() require('color-picker').replace{height=30, width=60} end) -- color picker replace 3 size
-        vim.keymap.set("n", "<leader>cpr4", function() require('color-picker').replace{height=40, width=80} end) -- color picker replace 4 size
-        vim.keymap.set("n", "<leader>cpr5", function() require('color-picker').replace{height=50, width=100} end) -- color picker replace 5 size
-        vim.keymap.set("n", "<leader>cpr6", function() require('color-picker').replace{height=60, width=120} end) -- color picker replace 6 size
-        vim.keymap.set("n", "<leader>cpr7", function() require('color-picker').replace{height=70, width=140} end) -- color picker replace 7 size
-        vim.keymap.set("n", "<leader>cpr8", function() require('color-picker').replace{height=80, width=160} end) -- color picker replace 8 size
-        vim.keymap.set("n", "<leader>cpr9", function() require('color-picker').replace{height=90, width=180} end) -- color picker replace 9 size
-        vim.keymap.set("n", "<leader>cpr0", function() require('color-picker').replace{height=100, width=200} end) -- color picker replace 10 size
+        vim.keymap.set("n", "<leader>cprr", require("color-picker").replace) -- color picker replace normal
+        vim.keymap.set("n", "<leader>cpr2", function() require("color-picker").replace{height=20, width=40} end) -- color picker replace 2 size
+        vim.keymap.set("n", "<leader>cpr3", function() require("color-picker").replace{height=30, width=60} end) -- color picker replace 3 size
+        vim.keymap.set("n", "<leader>cpr4", function() require("color-picker").replace{height=40, width=80} end) -- color picker replace 4 size
+        vim.keymap.set("n", "<leader>cpr5", function() require("color-picker").replace{height=50, width=100} end) -- color picker replace 5 size
+        vim.keymap.set("n", "<leader>cpr6", function() require("color-picker").replace{height=60, width=120} end) -- color picker replace 6 size
+        vim.keymap.set("n", "<leader>cpr7", function() require("color-picker").replace{height=70, width=140} end) -- color picker replace 7 size
+        vim.keymap.set("n", "<leader>cpr8", function() require("color-picker").replace{height=80, width=160} end) -- color picker replace 8 size
+        vim.keymap.set("n", "<leader>cpr9", function() require("color-picker").replace{height=90, width=180} end) -- color picker replace 9 size
+        vim.keymap.set("n", "<leader>cpr0", function() require("color-picker").replace{height=100, width=200} end) -- color picker replace 10 size
     -- replace
     -- insert
-        vim.keymap.set("n", "<leader>cpir", require('color-picker').insert) -- color picker insert normal
-        vim.keymap.set("n", "<leader>cpi2", function() require('color-picker').insert{height=20, width=40} end) -- color picker insert 2 size
-        vim.keymap.set("n", "<leader>cpi3", function() require('color-picker').insert{height=30, width=60} end) -- color picker insert 3 size
-        vim.keymap.set("n", "<leader>cpi4", function() require('color-picker').insert{height=40, width=80} end) -- color picker insert 4 size
-        vim.keymap.set("n", "<leader>cpi5", function() require('color-picker').insert{height=50, width=100} end) -- color picker insert 5 size
-        vim.keymap.set("n", "<leader>cpi6", function() require('color-picker').insert{height=60, width=120} end) -- color picker insert 6 size
-        vim.keymap.set("n", "<leader>cpi7", function() require('color-picker').insert{height=70, width=140} end) -- color picker insert 7 size
-        vim.keymap.set("n", "<leader>cpi8", function() require('color-picker').insert{height=80, width=160} end) -- color picker insert 8 size
-        vim.keymap.set("n", "<leader>cpi9", function() require('color-picker').insert{height=90, width=180} end) -- color picker insert 9 size
-        vim.keymap.set("n", "<leader>cpi0", function() require('color-picker').insert{height=100, width=200} end) -- color picker insert 10 size
+        vim.keymap.set("n", "<leader>cpir", require("color-picker").insert) -- color picker insert normal
+        vim.keymap.set("n", "<leader>cpi2", function() require("color-picker").insert{height=20, width=40} end) -- color picker insert 2 size
+        vim.keymap.set("n", "<leader>cpi3", function() require("color-picker").insert{height=30, width=60} end) -- color picker insert 3 size
+        vim.keymap.set("n", "<leader>cpi4", function() require("color-picker").insert{height=40, width=80} end) -- color picker insert 4 size
+        vim.keymap.set("n", "<leader>cpi5", function() require("color-picker").insert{height=50, width=100} end) -- color picker insert 5 size
+        vim.keymap.set("n", "<leader>cpi6", function() require("color-picker").insert{height=60, width=120} end) -- color picker insert 6 size
+        vim.keymap.set("n", "<leader>cpi7", function() require("color-picker").insert{height=70, width=140} end) -- color picker insert 7 size
+        vim.keymap.set("n", "<leader>cpi8", function() require("color-picker").insert{height=80, width=160} end) -- color picker insert 8 size
+        vim.keymap.set("n", "<leader>cpi9", function() require("color-picker").insert{height=90, width=180} end) -- color picker insert 9 size
+        vim.keymap.set("n", "<leader>cpi0", function() require("color-picker").insert{height=100, width=200} end) -- color picker insert 10 size
     -- insert
     vim.api.nvim_set_keymap("n", "<leader>cpRh", ":ColorPickerReformat hex<CR>", {noremap=true}) -- color picker reformat hex
     vim.api.nvim_set_keymap("n", "<leader>cpRr", ":ColorPickerReformat rgb<CR>", {noremap=true}) -- color picker reformat rgb
     vim.api.nvim_set_keymap("n", "<leader>cpRa", ":ColorPickerReformat rgba<CR>", {noremap=true}) -- color picker reformat rgba
 -- color-picker
 
+-- dap
+    vim.api.nvim_set_keymap("n", "<leader>dd",  ":lua require('dapui').toggle()<CR>", {noremap=true}) -- debug thing ui toggle
+    vim.keymap.set("n", "<Leader>db", function() require("dap").toggle_breakpoint() end)
+    vim.keymap.set("n", "<C-Right>", function() require("dap").continue() end)
+    vim.keymap.set("n", "<C-Up>", function() require("dap").step_over() end)
+    vim.keymap.set("n", "<C-Down>", function() require("dap").step_into() end)
+    vim.keymap.set("n", "<C-Left>", function() require("dap").step_out() end)
+    -- vim.keymap.set("n", "<Leader>dr", function() require("dap").repl.open() end)
+    -- vim.keymap.set("n", "<Leader>dl", function() require("dap").run_last() end)
+-- dap
+
 vim.api.nvim_set_keymap("n", "<leader>D",  ":Dashboard<CR>", {noremap=true}) -- opens the dashboard
-vim.api.nvim_set_keymap("n", "<leader>d",  ":lua require('dapui').toggle()<CR>", {noremap=true}) -- debug thing ui toggle
 vim.api.nvim_set_keymap("n", "<leader>lw", ":set wrap!<CR>", {noremap=true}) -- wrap on off (just for that window)
 vim.api.nvim_set_keymap("n", "<leader>w",  ":lua require('nvim-window').pick()<CR>", {noremap=true}) -- pick a window fast
 vim.api.nvim_set_keymap("n", "<leader>u",  ":lua require('telescope').extensions.undo.undo()<CR>", {noremap=true}) -- Telescope undo tree
