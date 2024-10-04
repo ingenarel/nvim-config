@@ -26,8 +26,8 @@ end
 vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true, silent=true})
 
 --remappping
-    vim.api.nvim_set_keymap("n", ":", ";", {noremap=true, silent=true})
-    vim.api.nvim_set_keymap("n", ";", ":", {noremap=true, silent=true})
+    vim.api.nvim_set_keymap("n", ":", ";", {noremap=true})
+    vim.api.nvim_set_keymap("n", ";", ":", {noremap=true})
 --remappping
 
 -- Telescope
