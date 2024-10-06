@@ -3,19 +3,19 @@
     vim.g.mapleader=" "
 -- leader map
 
-function SaveAndSource()
+function CUSTOM_KEYBIND_SaveAndSource()
     vim.cmd("w")
     vim.cmd("source%")
 end
-vim.api.nvim_set_keymap("n", "<leader>R", ":lua SaveAndSource()<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<leader>R", ":lua CUSTOM_KEYBIND_SaveAndSource()<CR>", {noremap=true, silent=true})
 
-function ChangeDirectoryToCurrentAndShow()
+function CUSTOM_KEYBIND_ChangeDirectoryToCurrentAndShow()
     vim.cmd("cd %:h")
     vim.cmd("pwd")
 end
-vim.api.nvim_set_keymap("n", "<leader>cd", ":lua ChangeDirectoryToCurrentAndShow()<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<leader>cd", ":lua CUSTOM_KEYBIND_ChangeDirectoryToCurrentAndShow()<CR>", {noremap=true, silent=true})
 
-function UPDATEALLSHIT()
+function CUSTOM_KEYBIND_UPDATEALLSHIT()
     vim.cmd("PlugUpgrade") -- upgrades plug
     vim.cmd("PlugClean") -- delets plugin that's not being used
     vim.cmd("PlugUpdate") -- updates plugins
@@ -23,7 +23,7 @@ function UPDATEALLSHIT()
     vim.cmd("MasonUpdate") -- updates mason's registries
     vim.cmd("FloatermNew --width=0.5 --height=0.5 --title=Debugpy_Update --titleposition=center pip3 install debugpy -U") -- install debugpy if not installed, if it is, try to update it
 end
-vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<F5>", ":lua CUSTOM_KEYBIND_UPDATEALLSHIT()<CR>", {noremap=true, silent=true})
 
 --remappping
     vim.api.nvim_set_keymap("n", ":", ";", {noremap=true})
@@ -50,7 +50,7 @@ vim.api.nvim_set_keymap("n", "<F5>", ":lua UPDATEALLSHIT()<CR>", {noremap=true, 
 -- git
 -- parenthesis
     vim.api.nvim_set_keymap("n", "<leader>px", "mx%x`xx", {noremap=true, silent=true}) -- remove parenthesis
-    vim.api.nvim_set_keymap("n", "<leader>p(", "mx%r)`xr(", {noremap=true, silent=true}) -- change parenthesis to ()
+    vim.api.nvim_set_keymap("n", "<leader>p(", "mx%r(`xr)", {noremap=true, silent=true}) -- change parenthesis to ()
     vim.api.nvim_set_keymap("n", "<leader>p)", "mx%r(`xr)", {noremap=true, silent=true}) -- change parenthesis to ()
     vim.api.nvim_set_keymap("n", "<leader>p[", "mx%r]`xr[", {noremap=true, silent=true}) -- change parenthesis to []
     vim.api.nvim_set_keymap("n", "<leader>p]", "mx%r[`xr]", {noremap=true, silent=true}) -- change parenthesis to []
