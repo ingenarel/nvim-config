@@ -10,6 +10,7 @@ Plug("windwp/nvim-autopairs") -- for pairing
 Plug("nvim-lua/plenary.nvim") -- a dependency for some plugins
 Plug("nvim-telescope/telescope.nvim") -- fzf on crack
 Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
+Plug("lewis6991/gitsigns.nvim") -- git signs and stuff
 -- lsp, and autocompletion shit
     -- lsp
         Plug("neovim/nvim-lspconfig") -- config for lsp
@@ -38,6 +39,7 @@ vim.opt.termguicolors = true -- enable more colors
 
 require("telescope").setup()
 require("dapui").setup()
+require('gitsigns').setup()
 
 require("_plugins_._lualine-config_")
 require("_plugins_._autopairs-config_")
