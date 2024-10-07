@@ -11,7 +11,7 @@ Plug("nvim-lua/plenary.nvim") -- a dependency for some plugins
 Plug("nvim-telescope/telescope.nvim") -- fzf on crack
 Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
 Plug("lewis6991/gitsigns.nvim") -- git signs and stuff
--- lsp, and autocompletion shit
+-- language helps
     -- lsp
         Plug("neovim/nvim-lspconfig") -- config for lsp
         Plug("williamboman/mason-lspconfig.nvim") -- lspconfig but with mason
@@ -29,7 +29,10 @@ Plug("lewis6991/gitsigns.nvim") -- git signs and stuff
         Plug("ms-jpq/coq_nvim", {["branch"]="coq"}) -- coq, the autocompletion plugin
         Plug("ms-jpq/coq.artifacts", {["branch"]="artifacts"}) -- coq snippets
     -- coq
--- lsp, and autocompletion shit
+    -- treeslitter
+        Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
+    -- treeslitter
+-- language helps
 Plug("voldikss/vim-floaterm") -- floaterm, the floating terminal emulator in neovim
 Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
 Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers

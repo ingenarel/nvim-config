@@ -23,6 +23,7 @@ function CUSTOM_KEYBIND_UPDATEALLSHIT()
     vim.cmd("PlugUpdate") -- updates plugins
     vim.cmd("Mason") -- opens up mason
     vim.cmd("MasonUpdate") -- updates mason's registries
+    vim.cmd("TSUpdate") -- updates mason's registries
 end
 akms("n", "<F5>", ":lua CUSTOM_KEYBIND_UPDATEALLSHIT()<CR>", {noremap=true, silent=true})
 
