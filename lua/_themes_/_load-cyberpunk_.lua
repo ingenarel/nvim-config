@@ -53,5 +53,8 @@ color(0, "FoldColumn", {fg="#00FFC8"})
 color(0, "CursorLine", {bg="#2e2e2e"})
 color(0, "CursorColumn", {bg="#2e2e2e"})
 color(0, "CursorLineNr", {bg="#2e2e2e"})
+color(0, "GitSignsAdd", { fg = "#00FF00"})
+color(0, "GitSignsChange", { fg = "#FFFF00"})
+color(0, "GitSignsDelete", { fg = "#FF004E"})
 
 -- this theme is actually a custom version of https://github.com/thedenisnikulin/vim-cyberpunk
