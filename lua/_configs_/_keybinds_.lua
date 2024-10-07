@@ -101,8 +101,14 @@ akms("n", "<F5>", ":lua CUSTOM_KEYBIND_UPDATEALLSHIT()<CR>", {noremap=true, sile
     -- kms("n", "<Leader>dl", function() require("dap").run_last() end)
 -- dap
 
+function CUSTOM_KEYBIND_ShowStatuslineWhileChangingWindow()
+    vim.opt.laststatus = 2
+    require('nvim-window').pick()
+    vim.opt.laststatus = 3
+end
+akms("n", "<leader>w",  ":lua CUSTOM_KEYBIND_ShowStatuslineWhileChangingWindow()<CR>", {noremap=true, silent=true}) -- pick a window fast
+
 akms("n", "<leader>D",  ":Dashboard<CR>", {noremap=true, silent=true}) -- opens the dashboard
 akms("n", "<leader>lw", ":set wrap!<CR>", {noremap=true, silent=true}) -- wrap on off (just for that window)
-akms("n", "<leader>w",  ":lua require('nvim-window').pick()<CR>", {noremap=true, silent=true}) -- pick a window fast
 akms("n", "<leader>u",  ":lua require('telescope').extensions.undo.undo()<CR>", {noremap=true, silent=true}) -- Telescope undo tree
 

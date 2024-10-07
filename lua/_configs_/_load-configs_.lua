@@ -1,33 +1,36 @@
+local vc =  vim.opt
 -- show the absolute line numbers and the relative line numbers
-	vim.opt.number = true
-	vim.opt.relativenumber = true
+	vc.number = true
+	vc.relativenumber = true
 -- show the absolute line numbers and the relative line numbers
 
 -- tab changes
-    vim.opt.expandtab = true      -- Use spaces instead of tabs
-    vim.opt.tabstop = 4           -- Number of spaces that a <Tab> in the file counts for
-    vim.opt.shiftwidth = 4        -- Number of spaces to use for each step of (auto)indent
-    vim.opt.softtabstop = 4       -- Number of spaces that a <Tab> counts for while performing editing operations
+    vc.expandtab = true      -- Use spaces instead of tabs
+    vc.tabstop = 4           -- Number of spaces that a <Tab> in the file counts for
+    vc.shiftwidth = 4        -- Number of spaces to use for each step of (auto)indent
+    vc.softtabstop = 4       -- Number of spaces that a <Tab> counts for while performing editing operations
 -- tab changes
 
-vim.o.clipboard = "unnamedplus" --uses the system clipboard
+vc.clipboard = "unnamedplus" --uses the system clipboard
 
-vim.o.scrolloff = 33 -- keep the scroll in the middle.
+vc.scrolloff = 33 -- keep the scroll in the middle.
 
-vim.o.autoread = true --autoreads the file so if a background change happens nvim detects it
+vc.autoread = true --autoreads the file so if a background change happens nvim detects it
 
-vim.o.ignorecase = true	-- Set ignorecase option
+vc.ignorecase = true	-- Set ignorecase option
 
 -- fold options
-    vim.o.foldenable = true
-    vim.o.foldlevel = 99
-    vim.o.foldmethod = "indent"
+    vc.foldenable = true
+    vc.foldlevel = 99
+    vc.foldmethod = "indent"
     -- vim.o.foldcolumn = '1'
     -- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- fold options
 
-vim.o.cursorline = true -- set cursorline
-vim.opt.cursorcolumn = true
+vc.cursorline = true -- set cursorline
+vc.cursorcolumn = true
+vc.colorcolumn = "80,100,120"
 
-vim.opt.colorcolumn = "80,100,120"
+vc.laststatus = 3
 
+vc.mouse = ""
