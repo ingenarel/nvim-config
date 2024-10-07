@@ -23,7 +23,6 @@ function CUSTOM_KEYBIND_UPDATEALLSHIT()
     vim.cmd("PlugUpdate") -- updates plugins
     vim.cmd("Mason") -- opens up mason
     vim.cmd("MasonUpdate") -- updates mason's registries
-    vim.cmd("FloatermNew --width=0.5 --height=0.5 --title=Debugpy_Update --titleposition=center pip3 install debugpy -U") -- install debugpy if not installed, if it is, try to update it
 end
 akms("n", "<F5>", ":lua CUSTOM_KEYBIND_UPDATEALLSHIT()<CR>", {noremap=true, silent=true})
 

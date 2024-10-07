@@ -21,7 +21,9 @@ Plug("lewis6991/gitsigns.nvim") -- git signs and stuff
         Plug("mfussenegger/nvim-dap") -- nvim debug adapter protocol
         Plug("nvim-neotest/nvim-nio") -- needed for dap ui
         Plug("rcarriga/nvim-dap-ui") -- ui for the nvim dap, need to configure it.
+        Plug("jay-babu/mason-nvim-dap.nvim") -- nvim dap and mason bridge
         Plug("mfussenegger/nvim-dap-python") -- dap configs for python
+        Plug("julianolf/nvim-dap-lldb") -- dap configs for codelldb
     -- dap
     -- coq
         Plug("ms-jpq/coq_nvim", {["branch"]="coq"}) -- coq, the autocompletion plugin
