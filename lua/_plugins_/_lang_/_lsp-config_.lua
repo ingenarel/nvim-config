@@ -1,4 +1,4 @@
-require("mason-lspconfig").setup {
+require("mason-lspconfig").setup{
     ensure_installed = {
     "pyright", -- Python lsp
     "clangd", -- C lsp
@@ -8,17 +8,27 @@ require("mason-lspconfig").setup {
 }
 
 local lspconfig = require("lspconfig")
-    lspconfig.pyright.setup{}
-    lspconfig.lua_ls.setup {
-        settings = {
-            Lua = {
-                workspace = {
-                    library = vim.api.nvim_get_runtime_file("", true)
-                }
+lspconfig.pyright.setup{
+    settings = {
+        python = {
+            analysis = {
+                typeCheckingMode = "strict",
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+                logLevel = "error",
             }
         }
     }
-    lspconfig.clangd.setup{}
-    lspconfig.bashls.setup{}
-
-
+}
+lspconfig.lua_ls.setup{
+    settings = {
+        Lua = {
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true)
+            }
+        }
+    }
+}
+lspconfig.clangd.setup{}
+lspconfig.bashls.setup{}

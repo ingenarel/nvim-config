@@ -18,12 +18,14 @@ end
 akms("n", "<leader>cd", ":lua CUSTOM_KEYBIND_ChangeDirectoryToCurrentAndShow()<CR>", {noremap=true, silent=true})
 
 function CUSTOM_KEYBIND_UPDATEALLSHIT()
+    vim.cmd("MasonUpdate") -- updates mason's registries
+    vim.cmd("TSUpdate") -- updates parsers
     vim.cmd("PlugUpgrade") -- upgrades plug
     vim.cmd("PlugClean") -- delets plugin that's not being used
     vim.cmd("PlugUpdate") -- updates plugins
     vim.cmd("Mason") -- opens up mason
-    vim.cmd("MasonUpdate") -- updates mason's registries
-    vim.cmd("TSUpdate") -- updates mason's registries
+    -- vim.cmd("FloatermNew --width=0.4 --height=0.3 --title=Python_Updates --titleposition=center --position=bottomright pip3 install debugpy black -U") -- install debugpy and black if not installed, if it is, try to update it
+    vim.cmd("!pip3 install debugpy black -U")
 end
 akms("n", "<F5>", ":lua CUSTOM_KEYBIND_UPDATEALLSHIT()<CR>", {noremap=true, silent=true})
 
@@ -37,6 +39,7 @@ akms("n", "<F5>", ":lua CUSTOM_KEYBIND_UPDATEALLSHIT()<CR>", {noremap=true, sile
     akms("n", "<leader>tof", ":Telescope oldfiles<CR>", {noremap=true, silent=true})
     akms("n", "<leader>ts",  ":Telescope live_grep<CR>", {noremap=true, silent=true})
     akms("n", "<leader>tb",  ":Telescope buffers<CR>", {noremap=true, silent=true})
+    akms("n", "<leader>tt",  ":Telescope treesitter<CR>", {noremap=true, silent=true})
     akms("n", "<leader>T",   ":Telescope<CR>", {noremap=true, silent=true})
 -- Telescope
 -- terminal

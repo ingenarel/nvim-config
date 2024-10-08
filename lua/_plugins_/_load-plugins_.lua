@@ -1,5 +1,8 @@
 local vim = vim
 local Plug = vim.fn['plug#']
+vim.g.plug_threads = 10
+vim.g.plug_retries = 999
+vim.g.plug_timeout = 999
 vim.call('plug#begin')
 Plug("nvim-tree/nvim-web-devicons") -- a dependency for some plugins
 Plug("nvimdev/dashboard-nvim") -- dashboard
@@ -38,18 +41,38 @@ Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
 Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers
 Plug("folke/which-key.nvim") -- for keybindings help
 Plug("debugloop/telescope-undo.nvim") -- telescope undo plugin
+Plug("MunifTanjim/nui.nvim") -- dependency for noice
+Plug("rcarriga/nvim-notify") -- dependency for noice
+Plug("folke/noice.nvim") -- noice ui
 vim.call("plug#end")
 
 vim.opt.termguicolors = true -- enable more colors
 
 require("telescope").setup()
 require("dapui").setup()
-require('gitsigns').setup()
+require("gitsigns").setup()
+require("noice").setup()
 
-require("_plugins_._lualine-config_")
-require("_plugins_._autopairs-config_")
+
+require('lualine').setup{
+    options = { theme = 'molokai' }
+}
+require("nvim-autopairs").setup{
+    disable_in_visualblock = true,
+}
+require("ibl").setup{ -- indent line config
+    exclude = {
+        filetypes = {
+            "dashboard"
+        }
+    }
+}
+require("notify").setup{
+    background_colour="#000000"
+}
+
+
 require("_plugins_._dashboard-config_")
 require("_plugins_._language-helps_") -- config that has my lsp, dap and autocompletion config
-require("_plugins_._indent-line-config_")
 require("_plugins_._color-help-config_")
 require("_plugins_._focus-config_")

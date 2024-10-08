@@ -1,3 +1,4 @@
+require("mason-nvim-dap").setup{ensure_installed = {"codelldb"}}
 require("dap-python").setup("python")
 
 -- doesn't work currently

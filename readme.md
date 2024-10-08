@@ -9,3 +9,4 @@
 - use command `PlugUpdate`
 - run `COQdeps` if it tells you to.
 - if running for the first time, mason should start to install all the language servers. run `:Mason` to see the process.
+- the debuggers don't currently work atm. i couldn't figure out how to make codelldb stop at the breakpoints, and currently debugpy is broken.

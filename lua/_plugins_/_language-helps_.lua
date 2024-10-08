@@ -1,5 +1,4 @@
 require("mason").setup()
-require("mason-nvim-dap").setup{ensure_installed = {"python", "codelldb"}}
 
 require("_plugins_._lang_._lsp-config_")
 require("_plugins_._lang_._dap-config_")
