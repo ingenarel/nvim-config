@@ -12,7 +12,7 @@ lspconfig.pyright.setup{
     settings = {
         python = {
             analysis = {
-                typeCheckingMode = "strict",
+                typeCheckingMode = "default",
                 autoSearchPaths = true,
                 diagnosticMode = "workspace",
                 useLibraryCodeForTypes = true,
@@ -21,14 +21,25 @@ lspconfig.pyright.setup{
         }
     }
 }
+
 lspconfig.lua_ls.setup{
     settings = {
         Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                globals = { 'vim' },
+            },
             workspace = {
-                library = vim.api.nvim_get_runtime_file("", true)
-            }
-        }
-    }
+                library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
+            },
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
 }
 lspconfig.clangd.setup{}
 lspconfig.bashls.setup{}

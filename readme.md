@@ -10,3 +10,7 @@
 - run `COQdeps` if it tells you to.
 - if running for the first time, mason should start to install all the language servers. run `:Mason` to see the process.
 - the debuggers don't currently work atm. i couldn't figure out how to make codelldb stop at the breakpoints, and currently debugpy is broken.
+### these don't use mason to install, but are installed and updated seperately by the config, if you want to install these using mason, you need to change the config accordingly:
+- python:
+    - black (formatter)
+    - debugpy (dap)
