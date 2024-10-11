@@ -23,7 +23,6 @@ nsk_n("<leader>cd", ":lua CUSTOM_KEYBIND_ChangeDirectoryToCurrentAndShow()<CR>")
 
 function CUSTOM_KEYBIND_UPDATEALLSHIT()
     cmd("MasonUpdate") -- updates mason's registries
-    cmd("TSUpdate") -- updates parsers
     cmd("PlugUpgrade") -- upgrades plug
     cmd("PlugClean") -- delets plugin that's not being used
     cmd("PlugUpdate") -- updates plugins
@@ -155,10 +154,30 @@ end
 nsk_n("<leader>r", ":lua CUSTOM_KEYBIND_RunFile()<CR>")
 
 function CUSTOM_KEYBIND_ShowStatuslineWhileChangingWindow()
-    vim.opt.laststatus = 2
+    local ignore_filetypes = {
+        "dapui_watches", "dapui_stacks", "dapui_breakpoints",
+        "dapui_scope", "dapui_console", "dap-repl"
+    }
+    local function should_show_status() -- chatgpt written function cz the old one was still showing statusline
+        for _, win_id in ipairs(vim.api.nvim_list_wins()) do
+            local buf_id = vim.api.nvim_win_get_buf(win_id)
+            local filetype = vim.bo[buf_id].filetype
+            if vim.tbl_contains(ignore_filetypes, filetype) then
+                return false
+            end
+        end
+        return true
+    end
+    if should_show_status() then
+        vim.opt.laststatus = 2
+    else
+        vim.opt.laststatus = 3
+    end
     require('nvim-window').pick()
     vim.opt.laststatus = 3
 end
+nsk_n("<leader>w", ":lua CUSTOM_KEYBIND_ShowStatuslineWhileChangingWindow()<CR>")
+
 nsk_n("<leader>w",  ":lua CUSTOM_KEYBIND_ShowStatuslineWhileChangingWindow()<CR>") -- pick a window fast
 
 nsk_n("<leader>D",  ":Dashboard<CR>") -- opens the dashboard
