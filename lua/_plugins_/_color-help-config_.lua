@@ -31,9 +31,6 @@ picker.setup({
 
         -- palette mappings
         mappings = {
-            -- disable a mapping
-            -- ['k'] = nil,
-
             -- move one cell
             ['k'] = actions.move_up,
             ['j'] = actions.move_down,
@@ -47,8 +44,8 @@ picker.setup({
             ['L'] = actions.jump_right,
 
             -- rotate hue
-            ['<C-h>'] = actions.hue_left,
-            ['<C-l>'] = actions.hue_right,
+            ['<m-h>'] = actions.hue_left,
+            ['<m-l>'] = actions.hue_right,
 
             -- select the color under the cursor
             ['<CR>'] = actions.select,

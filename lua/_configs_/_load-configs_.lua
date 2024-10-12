@@ -1,36 +1,83 @@
-local vc =  vim.opt
--- show the absolute line numbers and the relative line numbers
-	vc.number = true
-	vc.relativenumber = true
--- show the absolute line numbers and the relative line numbers
+-- leader map {{{1
+    CK_SetKeymap_n("<Space>", "<Nop>")
+    vim.g.mapleader=" "
+-- leader map }}}1
+
+local vo =  vim.opt
 
 -- tab changes
-    vc.expandtab = true      -- Use spaces instead of tabs
-    vc.tabstop = 4           -- Number of spaces that a <Tab> in the file counts for
-    vc.shiftwidth = 4        -- Number of spaces to use for each step of (auto)indent
-    vc.softtabstop = 4       -- Number of spaces that a <Tab> counts for while performing editing operations
+    vo.expandtab = true      -- Use spaces instead of tabs
+    vo.tabstop = 4           -- Number of spaces that a <Tab> in the file counts for
+    vo.shiftwidth = 4        -- Number of spaces to use for each step of (auto)indent
+    vo.softtabstop = 4       -- Number of spaces that a <Tab> counts for while performing editing operations
 -- tab changes
 
-vc.clipboard = "unnamedplus" --uses the system clipboard
+vo.clipboard = "unnamedplus" --uses the system clipboard
 
-vc.scrolloff = 33 -- keep the scroll in the middle.
+vo.scrolloff = 39 -- keep the scroll in the middle.
 
-vc.autoread = true --autoreads the file so if a background change happens nvim detects it
+vo.ignorecase = true	-- Set ignorecase option
 
-vc.ignorecase = true	-- Set ignorecase option
+vo.foldmethod = "marker"
+vo.foldcolumn = "auto"
+vo.signcolumn = "auto"
+-- TODO: find out a way to make autocomplete semi transparent without setting winblend to 1
+vo.winblend = 1
 
--- fold options
-    vc.foldenable = true
-    vc.foldlevel = 99
-    vc.foldmethod = "indent"
-    -- vim.o.foldcolumn = '1'
-    -- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
--- fold options
+vo.cursorline = true -- set cursorline
+vo.cursorcolumn = true
+vo.textwidth = 120
 
-vc.cursorline = true -- set cursorline
-vc.cursorcolumn = true
-vc.colorcolumn = "80,100,120"
+vim.api.nvim_create_autocmd(
+    "BufEnter",
+    {
+        callback = function()
+            if vim.opt_local.commentstring ~= "" then
+                -- todo: this doesn't fucking work after i've split the same buffer.
+                vim.cmd("match Todo =\\c"..vim.split(vim.opt_local.commentstring._value, " ")[1].." *[@nodoc]* *todo.*=")
+            end
+        end
+    }
+)
 
-vc.laststatus = 3
+vim.api.nvim_create_autocmd(
+    "FileType",
+    {
+        callback = function()
+            local currentFileType = vim.opt_local.filetype._value
+            if vim.list_contains(IGNORE_FILETYPES_ALL_FOR_CONFIG(), currentFileType) then
+                vim.opt_local.textwidth = 0
+                vim.opt_local.foldmethod = "manual"
+            -- else
+            --     vim.o.fileformat = "unix"
+            end
+            if currentFileType == "help" then
+                vim.opt_local.colorcolumn = ""
+            end
+        end
+    }
+)
 
-vc.mouse = ""
+-- TODO: open an issue about either making this an actual thing, or removing this from the help page.
+-- vim.api.nvim_create_autocmd(
+--     "UserGettingBored",
+--     {
+--         callback = function (_)
+--             print("oi")
+--         end
+--     }
+-- )
+
+if vo.shell._value == "cmd.exe" then
+    vim.g.floaterm_shell = "%SystemRoot%\\System32\\cmd.exe /k %userprofile%\\.cmdrc.cmd"
+end
+
+vo.colorcolumn = "+0,-20,-40"
+vo.laststatus = 3
+
+vim.lsp.log_level = vim.lsp.log_levels.ERROR
+vim.lsp.set_log_level("ERROR")
+vo.mouse = ""
+vo.fileformats = "unix,dos"
+-- vo.matchpairs = "(:),{:},[:],<:>"
+vo.matchpairs = "(:),{:},[:]"

@@ -1,16 +1,57 @@
-### if you're not me then it's probably best if you fork it. cz i tinker with shit and push half done commits :)
-### i use this config mostly on linux, altho i do use it in windows sometimes. and it works
-- make sure that you don't have a nvim directory in your config. and if you do, rename it to something.
-- clone this bitch.
-- install vim-plug from the official repo
-    https://github.com/junegunn/vim-plug
-- make sure you have nodejs, python, ripgrep, and nerdfonts installed. a terminal with truecolor support is also recommended. i use kitty in linux and windows terminal in windows.
-- yazi is being used as a file manager and i'm also using lazygit. so you should install those too.
+### if you're not me then it's probably best if you don't start using it outright. cz i tinker with shit a lot and push commits without testing them out **sometimes** :)
+### this config works for me in both linux and windows, haven't checked bsd or mac tho.
+
+if someone doesn't know how nvim or lua works, they are probably gonna have a bad time figuring out this config, but if
+you know the basic stuff and the configuring, you can probably figure it out.
+
+## notes for people who're not me:
+
+
+### requirements for this config:
+ - nodejs
+ - python
+ - pip
+ - ripgrep
+ - nerdfonts 
+ - a terminal with truecolor support. i use kitty in linux and windows terminal preview in windows
+ - yazi (for some keybinds i use the yazi file manager)
+ - lazygit (for the git helper, i use lazygit)
+
+
+### installation
+- make sure that you don't have a nvim directory in your config. and if you do, rename or delete it to something.
+- clone this repo. you can also download the zip and extract the file in the config
+    - for noobs, you need to clone this repo as `nvim`, you can do it by doing `git clone
+        https://github.com/ingenarel/nvim-config.git nvim`
+- install [vim-plug](https://github.com/junegunn/vim-plug)
 - use command `PlugUpdate`
 - run `COQdeps` if it tells you to.
-- if running for the first time, mason should start to install all the language servers. run `:Mason` to see the process.
-- the debuggers don't currently work atm. i couldn't figure out how to make codelldb stop at the breakpoints, and currently debugpy is broken.
-### these don't use mason to install, but are installed and updated seperately by the config, if you want to install these using mason, you need to change the config accordingly:
-- python:
+- if running for the first time, mason should start to install the language servers. run `:Mason` to see the process.
+- after doing everything, hit F5 to install and/or update everything else that's needed
+
+
+### these don't use mason to install, but are installed and updated seperately by the config, if you want to install
+these using mason, you need to change the config accordingly:
+- python (using pip):
     - black (formatter)
-    - debugpy (dap)
+    - debugpy (dap) 
+
+python modules freeze frequently for some people for some reason, and debugpy breaks then too. i fix it by doing
+`python -Xfrozen_modules=off`
+
+
+### notes:
+- a considerable ammount of people dislike my neon cyberpunk style theme. i love it, if you don't like it, good for you.
+- i couldn't figure out how to make codelldb stop at the breakpoints. or maybe i'm just dumb.
+- you can update the stuff by just hitting F5
+- keybindings:
+    - `:` is remapped to `;` and `:` is remapped to `:` for visual and normal mode. ik i'm weird, but i just feel
+      comfortable with this remap
+    - space is used as the leader key
+    - i usually map my right alt key to <ESC>. on windows, use powertoys to do that.
+    - mapped a lot of ctrl keybindings to alt bindings. those still work with ctrl tho. so no worries.
+    - you can find all the keybindings and remaps that i made in `lua/_configs_/_keybinds_`
+- `textwidth` is set to 120, that means after 120 chars, you start writing from a newline, if you still couldn't
+  complete a line after 120 chars, then either you have a skill issue, or you need to reset it to 0. you can also do a
+  temporary fix by just doing J at the line to join the two lines.
+- you probably don't need the `coq-user-snippets` directory.

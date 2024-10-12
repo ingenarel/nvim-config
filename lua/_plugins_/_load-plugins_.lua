@@ -1,19 +1,32 @@
-local vim = vim
+local local_pairMan
+if vim.fn.has("win32") then
+    local_pairMan = vim.split(vim.opt.runtimepath._value, ",")[1].."\\nvim-pairMan"
+else
+    local_pairMan = vim.split(vim.opt.runtimepath._value, ",")[1].."/nvim-pairMan"
+end
+-- todo: install the good motion habit thing plugin.{{{
+-- there is a plugin that stops constant jjjjjj or kkk and stuff. you know what you're talking about. you saw a video about it in yt.}}}
+-- todo: follow the unix philosophy for the plugins.{{{
+-- a lot of plugins here has stuff that i don't use, so it's bloat for me. so i need to find alternatives for them.}}}
+-- todo: install hop.nvim
+local vim = vim -- plugin loading start {{{
 local Plug = vim.fn['plug#']
 vim.g.plug_threads = 10
-vim.g.plug_retries = 999
-vim.g.plug_timeout = 999
 vim.call('plug#begin')
-Plug("nvim-tree/nvim-web-devicons") -- a dependency for some plugins
+Plug("nvim-tree/nvim-web-devicons") -- nerd fonts glyph plugin
 Plug("nvimdev/dashboard-nvim") -- dashboard
 Plug("norcalli/nvim-colorizer.lua") -- for showing colors
 Plug("MarcosTypeAP/color-picker.nvim") -- colorpicker
 Plug("nvim-lualine/lualine.nvim") --  the statusline below
 Plug("windwp/nvim-autopairs") -- for pairing
+    -- todo: find an alternative for nvim-autopairs{{{
+    -- because i just need an autopairer, and this has many options that i don't use, so bloat imo }}}
 Plug("nvim-lua/plenary.nvim") -- a dependency for some plugins
-Plug("nvim-telescope/telescope.nvim") -- fzf on crack
+Plug("nvim-telescope/telescope.nvim") -- pickers and stuff
 Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
-Plug("lewis6991/gitsigns.nvim") -- git signs and stuff
+Plug("lewis6991/gitsigns.nvim") -- git signs and stuff 
+    -- todo: find an alternative for gitsigns{{{
+    -- gitsigns is too bloated for my current config, i just need the signs for now }}}
 -- language helps
     -- lsp
         Plug("neovim/nvim-lspconfig") -- config for lsp
@@ -26,53 +39,107 @@ Plug("lewis6991/gitsigns.nvim") -- git signs and stuff
         Plug("rcarriga/nvim-dap-ui") -- ui for the nvim dap, need to configure it.
         Plug("jay-babu/mason-nvim-dap.nvim") -- nvim dap and mason bridge
         Plug("mfussenegger/nvim-dap-python") -- dap configs for python
-        Plug("julianolf/nvim-dap-lldb") -- dap configs for codelldb
+        -- Plug("julianolf/nvim-dap-lldb") -- dap configs for codelldb
     -- dap
     -- coq
         Plug("ms-jpq/coq_nvim", {["branch"]="coq"}) -- coq, the autocompletion plugin
-        Plug("ms-jpq/coq.artifacts", {["branch"]="artifacts"}) -- coq snippets
+        -- Plug("ms-jpq/coq.artifacts", {["branch"]="artifacts"}) -- coq snippets
+            -- TODO: figure out how to make coq stop recompiling the snips everytime i rebase the git repo
     -- coq
-    -- treeslitter
+    -- treesitter
         Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
-    -- treeslitter
+    -- treesitter
 -- language helps
 Plug("voldikss/vim-floaterm") -- floaterm, the floating terminal emulator in neovim
 Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
-Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers
+Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers.
+    -- TODO: fork this repo and make the code a bit better.{{{
+    -- don't know lua that much, but lsp pointed out that it's using deprecated functions, and there's a function that's unused.
+    -- it's a single file. not that big too. shouldn't be that hard to make it a bit better ig.}}}
 Plug("folke/which-key.nvim") -- for keybindings help
 Plug("debugloop/telescope-undo.nvim") -- telescope undo plugin
 Plug("MunifTanjim/nui.nvim") -- dependency for noice
 Plug("rcarriga/nvim-notify") -- dependency for noice
 Plug("folke/noice.nvim") -- noice ui
-vim.call("plug#end")
+Plug(local_pairMan)
+vim.call("plug#end") -- plugin loading ends }}}1
 
 vim.opt.termguicolors = true -- enable more colors
 
-require("telescope").setup()
-require("dapui").setup()
-require("gitsigns").setup()
-require("noice").setup()
 
-
-require('lualine').setup{
-    options = { theme = 'molokai' }
-}
-require("nvim-autopairs").setup{
-    disable_in_visualblock = true,
-}
-require("ibl").setup{ -- indent line config
-    exclude = {
-        filetypes = {
+require("ibl").setup{ -- indent line config {{{1
+    exclude={
+        filetypes={
             "dashboard"
         }
+    },
+} -- }}}1
+
+require("notify").setup{background_colour="#000000"}
+
+require("noice").setup{ -- {{{1
+    cmdline = {
+        format = {
+            help = {pattern = "^:%s*he?l?p?g?%s+"},
+        },
+    },
+    routes = {
+        {
+            opts = {skip=true},
+            filter = {find = "^\".+\" .+L, %d+.+ written$"}
+        },
+        {
+            opts = {skip=true},
+            filter = {find = "^%d+ .+; .+ #%d+ .+$"}
+        },
+        -- TODO: open an issue on noice on using vim regex to find the patterns.
+        {
+            opts = {skip=true},
+            filter = {find = "^%d+ fewer lines$"}
+        },
+        {
+            opts = {skip=true},
+            filter = {find = "^%d+ more lines$"}
+        },
+        {
+            opts = {skip=true},
+            filter = {find = "^%d+ lines yanked$"}
+        },
+    },
+    lsp = {
+        override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+        },
+    },
+
+} -- }}}1
+
+require("dapui").setup()
+require("gitsigns").setup()
+
+require("lualine").setup{ -- {{{1
+    options = {
+        disabled_filetypes = {"dashboard"}
+    },
+    sections = {
+        lualine_z = {
+            "location",
+            "selectioncount",
+        }
     }
-}
-require("notify").setup{
-    background_colour="#000000"
-}
+} --}}}1
 
+require("which-key").setup{ -- {{{1
+    preset = "helix",
+    no_overlap = true,
+    -- layout = {width={max=120}}
+    -- win = {width={max=999}}
+} -- }}}1
 
+require("_plugins_._telescope-config_")
 require("_plugins_._dashboard-config_")
 require("_plugins_._language-helps_") -- config that has my lsp, dap and autocompletion config
 require("_plugins_._color-help-config_")
 require("_plugins_._focus-config_")
+require("_plugins_._autopairs-config_")

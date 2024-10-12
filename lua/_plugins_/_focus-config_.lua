@@ -4,37 +4,29 @@ require("focus").setup{
     autoresize = {
         enable = true, -- Enable or disable auto-resizing of splits
         minwidth = 10, -- Force minimum width for the unfocused window
-        minheight = 10, -- Force minimum height for the unfocused window
-        height_quickfix = 10, -- Set the height of quickfix panel
+        minheight = 7, -- Force minimum height for the unfocused window
     },
-    split = {
-        bufnew = true, -- Create blank buffer for new split windows
-        tmux = false, -- Create tmux splits instead of neovim splits
+    ui = {
+        hybridnumber = true, -- Display hybrid line numbers in the focussed window only
+        cursorline = true, -- Display a cursorline in the focussed window only
+        cursorcolumn = true, -- Display cursorcolumn in the focussed window only
+        signcolumn = true, -- Display signcolumn in the focussed window only
+        colorcolumn = {
+            enable = true, -- Display colorcolumn in the foccused window only
+            list = "+0,-20,-40", -- Set the comma-saperated list for the colorcolumn
+        },
+        -- TODO: fix the window highlighting. this doesn't work, need to probably open a github issue about it.
+        -- make sure i update everything and update this plugin too before i open an issue
+        -- winhighlight = true, -- Auto highlighting for focussed/unfocussed windows
     },
+
 }
-local ignore_filetypes = { "dapui_watches", "dapui_stacks", "dapui_breakpoints", "dapui_scope", "dapui_console", "dap-repl"}
--- local ignore_buftypes = {"nofile", "prompt", "popup"}
-
-local augroup =
-    vim.api.nvim_create_augroup("FocusDisable", { clear = true })
-
--- vim.api.nvim_create_autocmd("WinEnter", {
---     group = augroup,
---     callback = function(_)
---         if vim.tbl_contains(ignore_buftypes, vim.bo.buftype)
---         then
---             vim.w.focus_disable = true
---         else
---             vim.w.focus_disable = false
---         end
---     end,
---     desc = "Disable focus autoresize for BufType",
--- })
+local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup,
     callback = function(_)
-        if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
+        if vim.list_contains(IGNORE_FILETYPES_ALL_FOR_CONFIG(), vim.bo.filetype) then
             vim.b.focus_disable = true
         else
             vim.b.focus_disable = false
