@@ -133,7 +133,7 @@ require("nvim-treesitter.configs").setup{
 
 -- coq {{{1
 vim.g.coq_settings = {
-	auto_start = true,
+	auto_start = "shut-up",
     keymap = {
         eval_snips = "<leader>cs",
         recommended = false,
