@@ -94,7 +94,6 @@ function IGNORE_FILETYPES_ALL_FOR_CONFIG()
         "dap-repl",
         "dashboard",
         "mason",
-        "noice",
         "TelescopePrompt",
         "TelescopeResults",
         "query"

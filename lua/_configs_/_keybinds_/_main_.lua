@@ -166,10 +166,6 @@ vim.keymap.set(
             vol.cursorcolumn = false
             vol.cursorline = false
             vol.laststatus = 0
-            require("noice").setup{
-                messages={enabled=false},
-                lsp={progress={enabled=false}}
-            }
             require("ibl").update{enabled=false}
             -- vim.diagnostic.config{virtual_text=false}
             -- this is probably fucking crashing clangd
@@ -183,10 +179,6 @@ vim.keymap.set(
             vol.cursorcolumn = true
             vol.cursorline = true
             vol.laststatus = 3
-            require("noice").setup{
-                messages={enabled=true},
-                lsp={progress={enabled=true}}
-            }
             require("ibl").update{enabled=true}
             -- vim.diagnostic.config{virtual_text=true}
         end
@@ -219,16 +211,6 @@ vim.keymap.set(
     vim.keymap.set("n", "<leader>q", function() require("telescope.builtin").quickfix() end, {desc="Quickfix"})
     vim.keymap.set("n", "<leader>td", function() require("telescope.builtin").diagnostics() end, {desc="Diagnostics"})
 -- Telescope }}}1
-
--- notifs {{{1
-    vim.keymap.set(
-        "n",
-        "<leader>nl",
-        function() require("telescope").extensions.noice.noice{layout_strategy = "center"} end,
-        {desc="Notifications log"}
-    )
-    CK_SetKeymap_n("<leader>nd", ":NoiceDismiss<CR>", "Dismiss Notifications")
--- notifs }}}1
 
 -- File managing {{{1
     vim.keymap.set("n", "<leader>f",  function() require("telescope.builtin").find_files() end, {desc="find files"})

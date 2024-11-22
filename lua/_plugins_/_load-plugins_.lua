@@ -4,11 +4,8 @@ if vim.fn.has("win32") then
 else
     local_pairMan = vim.split(vim.opt.runtimepath._value, ",")[1].."/nvim-pairMan"
 end
--- todo: install the good motion habit thing plugin.{{{
--- there is a plugin that stops constant jjjjjj or kkk and stuff. you know what you're talking about. you saw a video about it in yt.}}}
 -- todo: follow the unix philosophy for the plugins.{{{
 -- a lot of plugins here has stuff that i don't use, so it's bloat for me. so i need to find alternatives for them.}}}
--- todo: install hop.nvim
 local vim = vim -- plugin loading start {{{
 local Plug = vim.fn['plug#']
 vim.g.plug_threads = 10
@@ -39,12 +36,9 @@ Plug("lewis6991/gitsigns.nvim") -- git signs and stuff
         Plug("rcarriga/nvim-dap-ui") -- ui for the nvim dap, need to configure it.
         Plug("jay-babu/mason-nvim-dap.nvim") -- nvim dap and mason bridge
         Plug("mfussenegger/nvim-dap-python") -- dap configs for python
-        -- Plug("julianolf/nvim-dap-lldb") -- dap configs for codelldb
     -- dap
     -- coq
         Plug("ms-jpq/coq_nvim", {["branch"]="coq"}) -- coq, the autocompletion plugin
-        -- Plug("ms-jpq/coq.artifacts", {["branch"]="artifacts"}) -- coq snippets
-            -- TODO: figure out how to make coq stop recompiling the snips everytime i rebase the git repo
     -- coq
     -- treesitter
         Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
@@ -59,13 +53,13 @@ Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch sp
 Plug("folke/which-key.nvim") -- for keybindings help
 Plug("debugloop/telescope-undo.nvim") -- telescope undo plugin
 Plug("MunifTanjim/nui.nvim") -- dependency for noice
-Plug("rcarriga/nvim-notify") -- dependency for noice
-Plug("folke/noice.nvim") -- noice ui
+Plug("smoka7/hop.nvim") -- for hopping
+Plug("m4xshen/hardtime.nvim") -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
+Plug("ThePrimeagen/vim-be-good") -- uwu prime dadddyyyyyyyyyyyyyyyyyyyyyy
 Plug(local_pairMan)
 vim.call("plug#end") -- plugin loading ends }}}1
 
 vim.opt.termguicolors = true -- enable more colors
-
 
 require("ibl").setup{ -- indent line config {{{1
     exclude={
@@ -73,46 +67,6 @@ require("ibl").setup{ -- indent line config {{{1
             "dashboard"
         }
     },
-} -- }}}1
-
-require("notify").setup{background_colour="#000000"}
-
-require("noice").setup{ -- {{{1
-    cmdline = {
-        format = {
-            help = {pattern = "^:%s*he?l?p?g?%s+"},
-        },
-    },
-    routes = {
-        {
-            opts = {skip=true},
-            filter = {find = "^\".+\" .+L, %d+.+ written$"}
-        },
-        {
-            opts = {skip=true},
-            filter = {find = "^%d+ .+; .+ #%d+ .+$"}
-        },
-        -- TODO: open an issue on noice on using vim regex to find the patterns.
-        {
-            opts = {skip=true},
-            filter = {find = "^%d+ fewer lines$"}
-        },
-        {
-            opts = {skip=true},
-            filter = {find = "^%d+ more lines$"}
-        },
-        {
-            opts = {skip=true},
-            filter = {find = "^%d+ lines yanked$"}
-        },
-    },
-    lsp = {
-        override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-        },
-    },
-
 } -- }}}1
 
 require("dapui").setup()
@@ -136,6 +90,10 @@ require("which-key").setup{ -- {{{1
     -- layout = {width={max=120}}
     -- win = {width={max=999}}
 } -- }}}1
+
+require("hop").setup()
+-- todo: need to make keymaps for it.
+require("hardtime").setup()
 
 require("_plugins_._telescope-config_")
 require("_plugins_._dashboard-config_")

@@ -93,6 +93,8 @@ function m.PairChanger(chars, backwards)
 
     simkeys("v<ESC>")
 
+    local afterSwitchLine = vim.fn.getline(".");
+
     if chars[1] == nil then
         if vim.list_contains(firstChars, charUnderCursor) then
             simkeys("%xgv<ESC>x")
@@ -108,7 +110,7 @@ function m.PairChanger(chars, backwards)
                 simkeys("/"..regex.."xgv<ESC>x")
             else
                 simkeys("?"..regex.."xgv<ESC>")
-                if vim.fn.col(".") ==  vim.fn.col("$") - 1 then
+                if vim.fn.col(".") ==  vim.fn.col("$") - 1 or afterSwitchLine ~= vim.fn.getline(".") then
                     simkeys("x")
                 else
                     simkeys("hx")

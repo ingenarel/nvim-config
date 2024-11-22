@@ -64,11 +64,6 @@ require("telescope").setup{
         -- undo = {
         --     layout_strategy = "center"
         -- },
-        noice = {
-            layout_strategy = "center"
-        }
     }
 }
--- todo: fix noice not loading config for telescope.
 require("telescope").load_extension("undo")
-require("telescope").load_extension("noice")
