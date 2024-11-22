@@ -91,8 +91,7 @@ require("which-key").setup{ -- {{{1
     -- win = {width={max=999}}
 } -- }}}1
 
-require("hop").setup()
--- todo: need to make keymaps for it.
+require("hop").setup{keys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"}
 require("hardtime").setup()
 
 require("_plugins_._telescope-config_")

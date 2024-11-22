@@ -12,20 +12,23 @@ local wk = require("which-key")
         vim.keymap.set({"n", "v", "o", "i", "c", "t"}, keymap, action)
     end
 
+    -- <M-h> is mapped to coq_settings.keymap.jump_to_mark
     alt_keymap("<M-]>", "<C-]>")
     alt_keymap("<M-d>", "<C-d>")
-    alt_keymap("<M-f>", "<C-f>")
-    --<M-h> is mapped to coq_settings.keymap.jump_to_mark
     alt_keymap("<M-i>", "<C-i>")
-    alt_keymap("<M-j>", "<enter>")
     alt_keymap("<M-l>", "<C-l>:ColorizerReloadAllBuffers<CR>")
     alt_keymap("<M-n>", "<C-n>")
     alt_keymap("<M-p>", "<C-p>")
     alt_keymap("<M-q>", "<C-q>")
     alt_keymap("<M-r>", "<C-r>")
-    alt_keymap("<M-t>", "<C-t>")
     alt_keymap("<M-u>", "<C-u>")
     vim.keymap.set("i", "<M-w>", "<C-w>")
+    vim.keymap.set("n", "<M-/>", function() vim.cmd("HopAnywhereAC") end)
+    vim.keymap.set("n", "<M-?>", function() vim.cmd("HopAnywhereBC") end)
+    vim.keymap.set("n", "<M-f>", function() vim.cmd("HopChar1AC") end)
+    vim.keymap.set("n", "<M-F>", function() vim.cmd("HopChar1BC") end)
+    vim.keymap.set("n", "<M-j>", function() vim.cmd("HopLineAC") end)
+    vim.keymap.set("n", "<M-k>", function() vim.cmd("HopLineBC") end)
 -- alt mappings }}}
 
 vim.keymap.set( -- saves and sources the file {{{
