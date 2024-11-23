@@ -1,9 +1,3 @@
-local local_pairMan
-if vim.fn.has("win32") then
-    local_pairMan = vim.split(vim.opt.runtimepath._value, ",")[1].."\\nvim-pairMan"
-else
-    local_pairMan = vim.split(vim.opt.runtimepath._value, ",")[1].."/nvim-pairMan"
-end
 -- todo: follow the unix philosophy for the plugins.{{{
 -- a lot of plugins here has stuff that i don't use, so it's bloat for me. so i need to find alternatives for them.}}}
 local vim = vim -- plugin loading start {{{
@@ -52,11 +46,12 @@ Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch sp
     -- it's a single file. not that big too. shouldn't be that hard to make it a bit better ig.}}}
 Plug("folke/which-key.nvim") -- for keybindings help
 Plug("debugloop/telescope-undo.nvim") -- telescope undo plugin
-Plug("MunifTanjim/nui.nvim") -- dependency for noice
+Plug("MunifTanjim/nui.nvim") -- dependency for some plugins.
+Plug("ingenarel/nvim-pairMan") -- my plugin for pair stuff
+    -- todo: need to actually push it to github. cz this only currently exists locally.
 Plug("smoka7/hop.nvim") -- for hopping
 Plug("m4xshen/hardtime.nvim") -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
 Plug("ThePrimeagen/vim-be-good") -- uwu prime dadddyyyyyyyyyyyyyyyyyyyyyy
-Plug(local_pairMan)
 vim.call("plug#end") -- plugin loading ends }}}1
 
 vim.opt.termguicolors = true -- enable more colors
