@@ -142,7 +142,8 @@ vim.g.coq_settings = {
     display = {
         preview = {
             resolve_timeout = 1
-        }
+        },
+        mark_applied_notify = false
     }
 }
 -- coq }}}1
