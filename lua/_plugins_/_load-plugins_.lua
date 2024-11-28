@@ -4,6 +4,9 @@ local vim = vim -- plugin loading start {{{
 local Plug = vim.fn['plug#']
 vim.g.plug_threads = 10
 vim.call('plug#begin')
+-- TODO: install the plugin that makes the terminal open the file in the current nvim instance.{{{
+-- when currently trying to start nvim in a nvim terminal, a new instance of nvim open up inside of it, need to somehow
+-- make it appear in the current instance of nvim;}}}
 Plug("nvim-tree/nvim-web-devicons") -- nerd fonts glyph plugin
 Plug("nvimdev/dashboard-nvim") -- dashboard
 Plug("norcalli/nvim-colorizer.lua") -- for showing colors
