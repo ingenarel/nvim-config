@@ -39,7 +39,6 @@ these using mason, you need to change the config accordingly:
 python modules freeze frequently for some people for some reason, and debugpy breaks then too. i fix it by doing
 `python -Xfrozen_modules=off`
 
-
 ### notes:
 - a considerable ammount of people dislike my neon cyberpunk style theme. i love it, if you don't like it, good for you.
 - i couldn't figure out how to make codelldb stop at the breakpoints. or maybe i'm just dumb.
@@ -48,7 +47,7 @@ python modules freeze frequently for some people for some reason, and debugpy br
     - `:` is remapped to `;` and `:` is remapped to `:` for visual and normal mode. ik i'm weird, but i just feel
       comfortable with this remap
     - space is used as the leader key
-    - i usually map my right alt key to <ESC>. on windows, use powertoys to do that.
+    - i usually map my right alt key to <ESC>, and caps lock to ctrl. on windows, i use powertoys to do that.
     - mapped a lot of ctrl keybindings to alt bindings. those still work with ctrl tho. so no worries.
     - you can find all the keybindings and remaps that i made in `lua/_configs_/_keybinds_`
 - `textwidth` is set to 120, that means after 120 chars, you start writing from a newline, if you still couldn't
