@@ -1,7 +1,6 @@
 -- todo: follow the unix philosophy for the plugins.{{{
 -- a lot of plugins here has stuff that i don't use, so it's bloat for me. so i need to find alternatives for them.}}}
-local vim = vim -- plugin loading start {{{
-local Plug = vim.fn['plug#']
+local Plug = vim.fn['plug#'] -- plugin loading start {{{
 vim.g.plug_threads = 10
 vim.call('plug#begin')
 -- TODO: install the plugin that makes the terminal open the file in the current nvim instance.{{{
