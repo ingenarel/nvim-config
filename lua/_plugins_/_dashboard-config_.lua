@@ -1,4 +1,3 @@
-local git_icon = require'nvim-web-devicons'.get_icon("git")
 require("dashboard").setup{
     theme = "doom",
     disable_move = true,
@@ -92,7 +91,7 @@ require("dashboard").setup{
             {
                 desc = "Help",
                 action = function()
-                            local help = vim.fn.input("help", "", "help")
+                            local help = vim.fn.input("help => ", "", "help")
                             if help == '' then
                                 return 0
                             end
@@ -106,7 +105,7 @@ require("dashboard").setup{
             {
                 desc = "Help Grep",
                 action = function()
-                             local help = vim.fn.input("Help Grep", "", "help")
+                             local help = vim.fn.input("Help Grep => ", "", "help")
                              if help == '' then
                                  return 0
                              end

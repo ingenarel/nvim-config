@@ -22,9 +22,9 @@ CK_SetKeymap_n("<leader>wf", "<C-w>|<C-w>_", "Max out split")
 function CK_ChangeWindowAndShowHelp(grepvalue, splitdirection)
     local current_file = vim.bo.filetype
 
-    local helpName = "Help"
+    local helpName = "Help => "
     if grepvalue then
-        helpName = "Help Grep"
+        helpName = "Help Grep => "
     end
 
     local callHelp = vim.fn.input(helpName, "", "help")
