@@ -22,8 +22,7 @@ you know the basic stuff and the configuring, you can probably figure it out.
 - clone this repo. you can also download the zip and extract the file in the config
     - for noobs, you need to clone this repo as `nvim`, you can do it by doing `git clone
         https://github.com/ingenarel/nvim-config.git nvim`
-- install [vim-plug](https://github.com/junegunn/vim-plug)
-- use command `PlugUpdate`
+- install [lazy.nvim](https://github.com/folke/lazy.nvim)
 - run `COQdeps` if it tells you to.
 - if running for the first time, mason should start to install the language servers. run `:Mason` to see the process.
 - after doing everything, hit F5 to install and/or update everything else that's needed

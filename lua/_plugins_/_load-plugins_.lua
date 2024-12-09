@@ -1,55 +1,69 @@
--- todo: follow the unix philosophy for the plugins.{{{
--- a lot of plugins here has stuff that i don't use, so it's bloat for me. so i need to find alternatives for them.}}}
-local Plug = vim.fn['plug#'] -- plugin loading start {{{
-vim.g.plug_threads = 10
-vim.call('plug#begin')
--- TODO: install the plugin that makes the terminal open the file in the current nvim instance.{{{
--- when currently trying to start nvim in a nvim terminal, a new instance of nvim open up inside of it, need to somehow
--- make it appear in the current instance of nvim;}}}
-Plug("nvim-tree/nvim-web-devicons") -- nerd fonts glyph plugin
-Plug("nvimdev/dashboard-nvim") -- dashboard
-Plug("norcalli/nvim-colorizer.lua") -- for showing colors
-Plug("MarcosTypeAP/color-picker.nvim") -- colorpicker
-Plug("nvim-lualine/lualine.nvim") --  the statusline below
-Plug("windwp/nvim-autopairs") -- for pairing
-    -- todo: find an alternative for nvim-autopairs{{{
-    -- because i just need an autopairer, and this has many options that i don't use, so bloat imo }}}
-Plug("nvim-lua/plenary.nvim") -- a dependency for some plugins
-Plug("nvim-telescope/telescope.nvim") -- pickers and stuff
-Plug("lukas-reineke/indent-blankline.nvim") -- for showing indent lines.
-Plug("lewis6991/gitsigns.nvim") -- git signs and stuff 
-    -- todo: find an alternative for gitsigns{{{
-    -- gitsigns is too bloated for my current config, i just need the signs for now }}}
--- language helps
-    Plug("williamboman/mason.nvim") -- mason, the lsp, dap, linter, and formatter manager
-    Plug("WhoIsSethDaniel/mason-tool-installer.nvim") -- auto installer
-    -- dap
-        Plug("mfussenegger/nvim-dap") -- nvim debug adapter protocol
-        Plug("nvim-neotest/nvim-nio") -- needed for dap ui
-        Plug("rcarriga/nvim-dap-ui") -- ui for the nvim dap, need to configure it.
-        Plug("mfussenegger/nvim-dap-python") -- dap configs for python
-    -- dap
-    Plug("ms-jpq/coq_nvim", {["branch"]="coq"}) -- coq, the autocompletion plugin
-    Plug("neovim/nvim-lspconfig") -- config for lsp
-    Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
--- language helps
-Plug("voldikss/vim-floaterm") -- floaterm, the floating terminal emulator in neovim
-Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
-Plug("https://gitlab.com/yorickpeterse/nvim-window.git") -- to quickly switch split buffers.
-    -- TODO: fork this repo and make the code a bit better.{{{
-    -- don't know lua that much, but lsp pointed out that it's using deprecated functions, and there's a function that's unused.
-    -- it's a single file. not that big too. shouldn't be that hard to make it a bit better ig.}}}
-Plug("folke/which-key.nvim") -- for keybindings help
-Plug("debugloop/telescope-undo.nvim") -- telescope undo plugin
-Plug("MunifTanjim/nui.nvim") -- dependency for some plugins.
-Plug("ingenarel/nvim-pairMan") -- my plugin for pair stuff
-Plug("smoka7/hop.nvim") -- for hopping
-Plug("m4xshen/hardtime.nvim") -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
-Plug("ThePrimeagen/vim-be-good") -- uwu prime dadddyyyyyyyyyyyyyyyyyyyyyy
-Plug("ingenarel/randomtips-nvim")
-vim.call("plug#end") -- plugin loading ends }}}1
-
 vim.opt.termguicolors = true -- enable more colors
+
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out, "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+    spec = {
+        {
+            {"nvim-tree/nvim-web-devicons"}, -- nerd fonts glyph plugin
+            {"nvimdev/dashboard-nvim"}, -- dashboard
+            {"norcalli/nvim-colorizer.lua"}, -- for showing colors
+            {"MarcosTypeAP/color-picker.nvim"}, -- colorpicker
+            {"nvim-lualine/lualine.nvim"}, --  the statusline below
+            {"windwp/nvim-autopairs"}, -- for pairing
+                -- todo: find an alternative for nvim-autopairs{{{
+                -- because i just need an autopairer, and this has many options that i don't use, so bloat imo }}}
+                {"nvim-lua/plenary.nvim"}, -- a dependency for some plugins
+                {"nvim-telescope/telescope.nvim"}, -- pickers and stuff
+                {"lukas-reineke/indent-blankline.nvim"}, -- for showing indent lines.
+                {"lewis6991/gitsigns.nvim"}, -- git signs and stuff 
+                -- todo: find an alternative for gitsigns{{{
+                -- gitsigns is too bloated for my current config, i just need the signs for now }}}
+            -- language helps
+            {"williamboman/mason.nvim"}, -- mason, the lsp, dap, linter, and formatter manager
+            {"WhoIsSethDaniel/mason-tool-installer.nvim"}, -- auto installer
+                -- dap
+                {"mfussenegger/nvim-dap"}, -- nvim debug adapter protocol
+                {"nvim-neotest/nvim-nio"}, -- needed for dap ui
+                {"rcarriga/nvim-dap-ui"}, -- ui for the nvim dap, need to configure it.
+                {"mfussenegger/nvim-dap-python"}, -- dap configs for python
+                -- dap
+                {"ms-jpq/coq_nvim", branch = "coq"}, -- coq, the autocompletion plugin
+                {"neovim/nvim-lspconfig"}, -- config for lsp
+                {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+            -- language helps
+            {"voldikss/vim-floaterm"}, -- floaterm, the floating terminal emulator in neovim
+            {"nvim-focus/focus.nvim"}, -- for autoresizing split buffers
+            {"https://gitlab.com/yorickpeterse/nvim-window.git"}, -- to quickly switch split buffers.
+                -- TODO: fork this repo and make the code a bit better.{{{
+                -- don't know lua that much, but lsp pointed out that it's using deprecated functions, and there's a function that's unused.
+                -- it's a single file. not that big too. shouldn't be that hard to make it a bit better ig.}}}
+                {"folke/which-key.nvim"}, -- for keybindings help
+                {"debugloop/telescope-undo.nvim"}, -- telescope undo plugin
+                {"MunifTanjim/nui.nvim"}, -- dependency for some plugins.
+                {"ingenarel/nvim-pairMan"}, -- my plugin for pair stuff
+                {"smoka7/hop.nvim"}, -- for hopping
+                {"m4xshen/hardtime.nvim"}, -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
+                {"ThePrimeagen/vim-be-good"}, -- uwu prime dadddyyyyyyyyyyyyyyyyyyyyyy
+		{"ingenarel/randomtips-nvim"}
+        }
+    }
+})
 
 require("ibl").setup{ -- indent line config {{{1
     exclude={
