@@ -3,7 +3,7 @@ require("dashboard").setup{
     disable_move = true,
     config = {
         header = {},
-        footer = {},
+        footer = require("randomtips").ReturnRandomTip(),
         packages = { enable = false},
         center = {
             {

@@ -54,6 +54,7 @@ Plug("ingenarel/nvim-pairMan") -- my plugin for pair stuff
 Plug("smoka7/hop.nvim") -- for hopping
 Plug("m4xshen/hardtime.nvim") -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
 Plug("ThePrimeagen/vim-be-good") -- uwu prime dadddyyyyyyyyyyyyyyyyyyyyyy
+Plug("ingenarel/randomtips-nvim")
 vim.call("plug#end") -- plugin loading ends }}}1
 
 vim.opt.termguicolors = true -- enable more colors
