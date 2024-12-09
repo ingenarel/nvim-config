@@ -68,7 +68,6 @@ vim.keymap.set( -- updater {{{1
                 PlugClean
                 PlugUpdate
                 Mason
-                FloatermNew --width=0.4 --height=0.3 --title=Python_Updates --titleposition=center --position=bottomright pip3 install debugpy black -U
             ]]
         )
     end,
@@ -82,7 +81,13 @@ vim.keymap.set( -- formatter {{{1
         local current_filetype = vim.bo.filetype
         vim.cmd("w")
         if current_filetype == "python" then
-            vim.cmd("!black %")
+            local blackPath;
+            if vim.fn.has("win32") == 0 then
+                blackPath = vim.fn.expand("~/.local/share/nvim/mason/packages/black/venv/bin/black");
+            else
+                blackPath = vim.fn.expand("~/Appdata/local/nvim-data/mason/packages/black/venv/bin/black")
+            end
+            vim.cmd("!"..blackPath.." %")
         else
             vim.notify("Filetype hasn't been implemented yet", "WARN")
         end

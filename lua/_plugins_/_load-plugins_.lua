@@ -21,24 +21,17 @@ Plug("lewis6991/gitsigns.nvim") -- git signs and stuff
     -- todo: find an alternative for gitsigns{{{
     -- gitsigns is too bloated for my current config, i just need the signs for now }}}
 -- language helps
-    -- lsp
-        Plug("neovim/nvim-lspconfig") -- config for lsp
-        Plug("williamboman/mason-lspconfig.nvim") -- lspconfig but with mason
-        Plug("williamboman/mason.nvim") -- mason, the lsp, dap, linter, and formatter manager
-    -- lsp
+    Plug("williamboman/mason.nvim") -- mason, the lsp, dap, linter, and formatter manager
+    Plug("WhoIsSethDaniel/mason-tool-installer.nvim") -- auto installer
     -- dap
         Plug("mfussenegger/nvim-dap") -- nvim debug adapter protocol
         Plug("nvim-neotest/nvim-nio") -- needed for dap ui
         Plug("rcarriga/nvim-dap-ui") -- ui for the nvim dap, need to configure it.
-        Plug("jay-babu/mason-nvim-dap.nvim") -- nvim dap and mason bridge
         Plug("mfussenegger/nvim-dap-python") -- dap configs for python
     -- dap
-    -- coq
-        Plug("ms-jpq/coq_nvim", {["branch"]="coq"}) -- coq, the autocompletion plugin
-    -- coq
-    -- treesitter
-        Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
-    -- treesitter
+    Plug("ms-jpq/coq_nvim", {["branch"]="coq"}) -- coq, the autocompletion plugin
+    Plug("neovim/nvim-lspconfig") -- config for lsp
+    Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
 -- language helps
 Plug("voldikss/vim-floaterm") -- floaterm, the floating terminal emulator in neovim
 Plug("nvim-focus/focus.nvim") -- for autoresizing split buffers
@@ -50,7 +43,6 @@ Plug("folke/which-key.nvim") -- for keybindings help
 Plug("debugloop/telescope-undo.nvim") -- telescope undo plugin
 Plug("MunifTanjim/nui.nvim") -- dependency for some plugins.
 Plug("ingenarel/nvim-pairMan") -- my plugin for pair stuff
-    -- todo: need to actually push it to github. cz this only currently exists locally.
 Plug("smoka7/hop.nvim") -- for hopping
 Plug("m4xshen/hardtime.nvim") -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
 Plug("ThePrimeagen/vim-be-good") -- uwu prime dadddyyyyyyyyyyyyyyyyyyyyyy

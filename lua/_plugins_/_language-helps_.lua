@@ -1,14 +1,29 @@
+local debugpyPythonPath, codelldbPath;
+if vim.fn.has("win32") == 0 then
+    debugpyPythonPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python";
+    codelldbPath = vim.fn.expand("~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb");
+else
+    -- debugpyPythonPath = "%LOCALAPPDATA%\\nvim-data\\mason\\packages\\debugpy\\venv\\bin\\python.exe";
+    -- codelldbPath = "C:\\Users\\Saad_Abdullah\\AppData\\Local\\nvim-data\\mason\\bin\\codelldb.cmd";
+    debugpyPythonPath = vim.fn.expand("~/Appdata/Local/nvim-data/mason/packages/debugpy/venv/bin/python.exe");
+    codelldbPath = vim.fn.expand("~/AppData/Local/nvim-data/mason/bin/codelldb.cmd");
+end
+
 require("mason").setup()
 
--- lsp {{{1
-require("mason-lspconfig").setup{
+require("mason-tool-installer").setup{
     ensure_installed = {
-    "pyright", -- Python lsp
-    "clangd", -- C lsp
-    "lua_ls", --lua lsp
-    "bashls", --bash lsp
+        "pyright",
+        "clangd",
+        "lua-language-server",
+        "bash-language-server",
+        "codelldb",
+        "debugpy",
+        "black",
     }
 }
+
+-- lsp {{{1
 
 local lspconfig = require("lspconfig")
 lspconfig.pyright.setup{
@@ -64,13 +79,9 @@ lspconfig.bashls.setup{
 -- lsp }}}1
 
 -- dap {{{1
-require("mason-nvim-dap").setup{
-    ensure_installed = {
-        "codelldb"
-    }
-}
 
-require("dap-python").setup("python")
+require("dap-python").setup(debugpyPythonPath)
+-- require("dap-python").setup(debugpyPythonPath.." -m debugpy")
 -- require("dap-lldb").setup("C:\\Users\\Saad_Abdullah\\AppData\\Local\\nvim-data\\mason\\bin\\codelldb.cmd")
 
 -- todo: fucking fix dapcodelldb
@@ -82,7 +93,7 @@ dap.adapters.codelldb = {
     type = "server",
     port = "${port}",
     executable = {
-        command = "C:\\Users\\Saad_Abdullah\\AppData\\Local\\nvim-data\\mason\\bin\\codelldb.cmd",
+        command = codelldbPath,
         args = {"--port", "${port}"},
         detached = false
     }
