@@ -64,10 +64,9 @@ vim.keymap.set( -- updater {{{1
         vim.cmd(
             [[
                 MasonUpdate
-                PlugUpgrade
-                PlugClean
-                PlugUpdate
                 Mason
+                Lazy clean
+                Lazy update
             ]]
         )
     end,
@@ -81,13 +80,7 @@ vim.keymap.set( -- formatter {{{1
         local current_filetype = vim.bo.filetype
         vim.cmd("w")
         if current_filetype == "python" then
-            local blackPath;
-            if vim.fn.has("win32") == 0 then
-                blackPath = vim.fn.expand("~/.local/share/nvim/mason/packages/black/venv/bin/black");
-            else
-                blackPath = vim.fn.expand("~/Appdata/local/nvim-data/mason/packages/black/venv/bin/black")
-            end
-            vim.cmd("!"..blackPath.." %")
+            vim.cmd("!"..vim.fn.stdpath("data").."/mason/packages/black/venv/bin/black".." %")
         else
             vim.notify("Filetype hasn't been implemented yet", "WARN")
         end
