@@ -20,16 +20,16 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     spec = {
         {
-            {"nvim-tree/nvim-web-devicons"}, -- nerd fonts glyph plugin
-            {"nvimdev/dashboard-nvim"}, -- dashboard
+            -- {"nvim-tree/nvim-web-devicons"}, -- nerd fonts glyph plugin
+            {"nvimdev/dashboard-nvim", event = "VimEnter", dependencies = {"nvim-tree/nvim-web-devicons"}}, -- dashboard
             {"norcalli/nvim-colorizer.lua"}, -- for showing colors
             {"MarcosTypeAP/color-picker.nvim"}, -- colorpicker
-            {"nvim-lualine/lualine.nvim"}, --  the statusline below
-            {"windwp/nvim-autopairs"}, -- for pairing
+            {"nvim-lualine/lualine.nvim", dependencies = {"nvim-tree/nvim-web-devicons"}}, --  the statusline below
+            {"windwp/nvim-autopairs", event = "InsertEnter"}, -- for pairing
                 -- todo: find an alternative for nvim-autopairs{{{
                 -- because i just need an autopairer, and this has many options that i don't use, so bloat imo }}}
-                {"nvim-lua/plenary.nvim"}, -- a dependency for some plugins
-                {"nvim-telescope/telescope.nvim"}, -- pickers and stuff
+                -- {"nvim-lua/plenary.nvim"}, -- a dependency for some plugins
+                {"nvim-telescope/telescope.nvim", dependencies = {"nvim-lua/plenary.nvim", "debugloop/telescope-undo.nvim"}}, -- pickers and stuff
                 {"lukas-reineke/indent-blankline.nvim"}, -- for showing indent lines.
                 {"lewis6991/gitsigns.nvim"}, -- git signs and stuff 
                 -- todo: find an alternative for gitsigns{{{
@@ -39,12 +39,33 @@ require("lazy").setup({
             {"WhoIsSethDaniel/mason-tool-installer.nvim"}, -- auto installer
                 -- dap
                 {"mfussenegger/nvim-dap"}, -- nvim debug adapter protocol
-                {"nvim-neotest/nvim-nio"}, -- needed for dap ui
-                {"rcarriga/nvim-dap-ui"}, -- ui for the nvim dap, need to configure it.
+                {"rcarriga/nvim-dap-ui", dependencies = {"nvim-neotest/nvim-nio"}}, -- ui for the nvim dap, need to configure it.
                 {"mfussenegger/nvim-dap-python"}, -- dap configs for python
                 -- dap
-                {"ms-jpq/coq_nvim", branch = "coq"}, -- coq, the autocompletion plugin
-                {"neovim/nvim-lspconfig"}, -- config for lsp
+                -- {"ms-jpq/coq_nvim", branch = "coq", lazy = false}, -- coq, the autocompletion plugin
+                {
+                    "neovim/nvim-lspconfig",
+                    lazy = false,
+                    dependencies = {
+                        { "ms-jpq/coq_nvim", branch = "coq" }
+                    },
+                    init = function()
+                        vim.g.coq_settings = {
+                            auto_start = "shut-up",
+                            keymap = {
+                                eval_snips = "<leader>cs",
+                                recommended = false,
+                                jump_to_mark = "<M-h>"
+                            },
+                            display = {
+                                preview = {
+                                    resolve_timeout = 1
+                                },
+                                mark_applied_notify = false
+                            }
+                        }
+                    end
+                },
                 {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
             -- language helps
             {"voldikss/vim-floaterm"}, -- floaterm, the floating terminal emulator in neovim
@@ -53,14 +74,13 @@ require("lazy").setup({
                 -- TODO: fork this repo and make the code a bit better.{{{
                 -- don't know lua that much, but lsp pointed out that it's using deprecated functions, and there's a function that's unused.
                 -- it's a single file. not that big too. shouldn't be that hard to make it a bit better ig.}}}
-                {"folke/which-key.nvim"}, -- for keybindings help
-                {"debugloop/telescope-undo.nvim"}, -- telescope undo plugin
-                {"MunifTanjim/nui.nvim"}, -- dependency for some plugins.
+                {"folke/which-key.nvim", event = "VeryLazy"}, -- for keybindings help
+                -- {"debugloop/telescope-undo.nvim"}, -- telescope undo plugin
+                -- {"MunifTanjim/nui.nvim"}, -- dependency for some plugins.
                 {"ingenarel/nvim-pairMan"}, -- my plugin for pair stuff
-                {"smoka7/hop.nvim"}, -- for hopping
-                {"m4xshen/hardtime.nvim"}, -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
-                {"ThePrimeagen/vim-be-good"}, -- uwu prime dadddyyyyyyyyyyyyyyyyyyyyyy
-		{"ingenarel/randomtips-nvim"}
+                {"smoka7/hop.nvim", version="*"}, -- for hopping
+                {"m4xshen/hardtime.nvim", dependencies = { "MunifTanjim/nui.nvim" }}, -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
+                {"ingenarel/randomtips-nvim"}
         }
     }
 })
