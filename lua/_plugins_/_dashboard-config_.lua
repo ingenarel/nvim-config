@@ -1,19 +1,19 @@
-require("dashboard").setup{
+require("dashboard").setup {
     theme = "doom",
     disable_move = true,
     config = {
         header = {},
         footer = require("randomtips").ReturnRandomTip(),
-        packages = { enable = false},
+        packages = { enable = false },
         center = {
             {
                 desc = "Find Files",
                 action = function()
-                    require("telescope.builtin").find_files{
+                    require("telescope.builtin").find_files {
                         layout_config = {
-                            height = {padding=0},
-                            width = {padding=0}
-                        }
+                            height = { padding = 0 },
+                            width = { padding = 0 },
+                        },
                     }
                 end,
                 key = "f",
@@ -28,99 +28,95 @@ require("dashboard").setup{
             {
                 desc = "Find Git Files",
                 action = function()
-                    require("telescope.builtin").git_files{
+                    require("telescope.builtin").git_files {
                         layout_config = {
-                            height = {padding=0},
-                            width = {padding=0}
-                        }
+                            height = { padding = 0 },
+                            width = { padding = 0 },
+                        },
                     }
                 end,
                 key = "F",
                 key_format = " %s",
-
             },
             {
                 desc = "Grep",
                 action = function()
-                    require("telescope.builtin").live_grep{
+                    require("telescope.builtin").live_grep {
                         layout_config = {
-                            height = {padding=0},
-                            width = {padding=0}
-                        }
+                            height = { padding = 0 },
+                            width = { padding = 0 },
+                        },
                     }
                 end,
                 key = "g",
                 key_format = " %s",
-
             },
             {
                 desc = "Old Files",
                 action = function()
-                    require("telescope.builtin").oldfiles{
+                    require("telescope.builtin").oldfiles {
                         layout_config = {
-                            height = {padding=0},
-                            width = {padding=0}
-                        }
+                            height = { padding = 0 },
+                            width = { padding = 0 },
+                        },
                     }
                 end,
                 key = "o",
                 key_format = " %s",
-
             },
             {
                 desc = "Telescope",
                 action = function()
-                    require("telescope.builtin").builtin{
+                    require("telescope.builtin").builtin {
                         layout_config = {
-                            height = {padding=0},
-                            width = {padding=0}
-                        }
+                            height = { padding = 0 },
+                            width = { padding = 0 },
+                        },
                     }
                 end,
                 key = "t",
                 key_format = " %s",
-
             },
             {
                 desc = "Lazygit",
                 action = "FloatermNew --width=1.0 --height=1.0 --title=LAZYGIT --titleposition=center lazygit",
                 key = "G",
                 key_format = " %s",
-
             },
             {
                 desc = "Help",
                 action = function()
-                            local help = vim.fn.input("help => ", "", "help")
-                            if help == '' then
-                                return 0
-                            end
-                            vim.cmd("h "..help)
-                            CK_SimKeys("<C-w>w<C-w>c")
-                         end,
+                    local help = vim.fn.input("help => ", "", "help")
+                    if help == "" then
+                        return 0
+                    end
+                    vim.cmd("h " .. help)
+                    CK_SimKeys("<C-w>w<C-w>c")
+                end,
                 key = "h",
                 key_format = " %s",
-
             },
             {
                 desc = "Help Grep",
                 action = function()
-                             local help = vim.fn.input("Help Grep => ", "", "help")
-                             if help == '' then
-                                 return 0
-                             end
-                             vim.cmd("helpg "..help.."\\c")
-                             CK_SimKeys("<CR><C-w>w<C-w>c:Telescope quickfix<CR>")
-                         end,
+                    local help = vim.fn.input("Help Grep => ", "", "help")
+                    if help == "" then
+                        return 0
+                    end
+                    vim.cmd("helpg " .. help .. "\\c")
+                    CK_SimKeys("<CR><C-w>w<C-w>c:Telescope quickfix<CR>")
+                end,
                 key = "H",
                 key_format = " %s",
             },
             {
                 desc = "last file",
-                action = function() CK_SimKeys("`0") end,
+                action = function()
+                    CK_SimKeys("`0")
+                end,
                 key = "l",
                 key_format = " %s",
-            }
+            },
         },
     },
 }

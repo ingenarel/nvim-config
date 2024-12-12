@@ -1,10 +1,17 @@
 CK_SetKeymap_n(
-    "<leader>gg", ":FloatermNew --width=0.97 --height=0.97 --title=LAZYGIT --titleposition=center lazygit<CR>",
+    "<leader>gg",
+    ":FloatermNew --width=0.97 --height=0.97 --title=LAZYGIT --titleposition=center lazygit<CR>",
     "Lazygit"
 )
-vim.keymap.set("n", "<leader>gb", function() require("telescope.builtin").git_branches() end, {desc="git branch list"})
-vim.keymap.set("n", "<leader>glc", function() require("telescope.builtin").git_commits() end ,{desc="git commit list"})
-vim.keymap.set("n", "<leader>gs", function() require("telescope.builtin").git_status() end, {desc="git status"})
+vim.keymap.set("n", "<leader>gb", function()
+    require("telescope.builtin").git_branches()
+end, { desc = "git branch list" })
+vim.keymap.set("n", "<leader>glc", function()
+    require("telescope.builtin").git_commits()
+end, { desc = "git commit list" })
+vim.keymap.set("n", "<leader>gs", function()
+    require("telescope.builtin").git_status()
+end, { desc = "git status" })
 CK_SetKeymap_n("<leader>ga", ":!git add %", "Add current file to git")
 CK_SetKeymap_n("<leader>gA", ":!git add -A<CR>", "Add all files to git")
 CK_SetKeymap_n("<leader>gr", ":!git reset %<CR>", "Git reset")
@@ -17,7 +24,6 @@ CK_SetKeymap_n("<leader>gr", ":!git reset %<CR>", "Git reset")
 ---if `all`, add all files before committing
 ---@nodoc }}}2
 function CK_GitWrapperCommit(add)
-
     local commit_msg = vim.fn.input("Commit msg")
 
     if commit_msg == "" then
@@ -35,20 +41,18 @@ function CK_GitWrapperCommit(add)
     end
 
     if commit_desc ~= nil then
-        vim.cmd('!git commit -m "'..commit_msg..'"')
+        vim.cmd('!git commit -m "' .. commit_msg .. '"')
     else
-        vim.cmd('!git commit -m "'..commit_msg..'" -m "'..commit_desc..'"')
+        vim.cmd('!git commit -m "' .. commit_msg .. '" -m "' .. commit_desc .. '"')
     end
-
 end -- }}}1
 
-
-vim.keymap.set(
-    "n", "<leader>gcc", function() CK_GitWrapperCommit() end, {desc="Commits without trying to add files"}
-)
-vim.keymap.set(
-    "n", "<leader>gca", function() CK_GitWrapperCommit("current") end, {desc="Adds the current file and commits"}
-)
-vim.keymap.set(
-    "n", "<leader>gcA", function() CK_GitWrapperCommit("all") end, {desc="Adds all files and commits"}
-)
+vim.keymap.set("n", "<leader>gcc", function()
+    CK_GitWrapperCommit()
+end, { desc = "Commits without trying to add files" })
+vim.keymap.set("n", "<leader>gca", function()
+    CK_GitWrapperCommit("current")
+end, { desc = "Adds the current file and commits" })
+vim.keymap.set("n", "<leader>gcA", function()
+    CK_GitWrapperCommit("all")
+end, { desc = "Adds all files and commits" })

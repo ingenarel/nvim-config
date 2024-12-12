@@ -1,4 +1,4 @@
-require("focus").setup{
+require("focus").setup {
     enable = true, -- Enable module
     commands = true, -- Create Focus commands
     autoresize = {
@@ -19,7 +19,6 @@ require("focus").setup{
         -- make sure i update everything and update this plugin too before i open an issue
         -- winhighlight = true, -- Auto highlighting for focussed/unfocussed windows
     },
-
 }
 local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
 

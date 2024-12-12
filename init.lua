@@ -7,7 +7,7 @@
 ---@param description? string description for the keymap
 ---@nodoc docs }}}2
 function CK_SetKeymap_n(keymap, action, description)
-    vim.api.nvim_set_keymap("n", keymap, action, {noremap=true, silent=true, desc=description})
+    vim.api.nvim_set_keymap("n", keymap, action, { noremap = true, silent = true, desc = description })
 end -- }}}1
 
 ---@nodoc CK_SimKeys() {{{1
@@ -37,15 +37,12 @@ end -- }}}1
 ---`wk:` nil and true are treated the same -> it executes whichkey before executing the keymap again. if false, it doesn't
 ---`desc:` the description from the keymap
 ---`wait:` time to wait before executing the keymap again. uses |vim.wait()|
----`mode`: the mode. normal mode, visual mode, insert mode etc. 
+---`mode`: the mode. normal mode, visual mode, insert mode etc.
 ---@nodoc docs }}}2
 function CK_Submap(keymap, action, submaplevel, opts)
-
-    ---@nodoc todo: open a issue about recursion timer of whichkey breaking this keymap{{{
-    ---@nodoc whichkey has a recursion timer. if i use this keymap to fast, it gets triggered, currently temporarily
-    ---@nodoc fixed it by commenting out the recursion timer code
-
-    if opts == nil then opts = {} end-- }}}
+    if opts == nil then
+        opts = {}
+    end
 
     local iswhichkey = opts.wk
     local description = opts.desc
@@ -71,18 +68,21 @@ function CK_Submap(keymap, action, submaplevel, opts)
     end
 
     vim.api.nvim_set_keymap(
-        mode, keymap,
-        action .. ":lua "..wait..
-        "vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('"..
-        whichkey..submaplevel..
-        "', true, false, true), 'nt', false)<CR>",
+        mode,
+        keymap,
+        action
+            .. ":lua "
+            .. wait
+            .. "vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('"
+            .. whichkey
+            .. submaplevel
+            .. "', true, false, true), 'nt', false)<CR>",
         {
-            noremap=true,
-            silent=true,
-            desc=description
+            noremap = true,
+            silent = true,
+            desc = description,
         }
     )
-
 end -- }}}1
 
 ---@nodoc IGNORE_FILETYPES_ALL_FOR_CONFIG() {{{
@@ -99,7 +99,7 @@ function IGNORE_FILETYPES_ALL_FOR_CONFIG()
         "mason",
         "TelescopePrompt",
         "TelescopeResults",
-        "query"
+        "query",
     }
 end -- }}}
 

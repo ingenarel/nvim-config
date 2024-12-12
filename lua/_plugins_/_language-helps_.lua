@@ -1,39 +1,39 @@
 -- local debugpyPythonPath, codelldbPath;
 -- if vim.fn.has("win32") == 0 then
-    -- debugpyPythonPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python";
-    -- codelldbPath = vim.fn.expand("~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb");
+-- debugpyPythonPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python";
+-- codelldbPath = vim.fn.expand("~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb");
 -- else
-    -- debugpyPythonPath = "%LOCALAPPDATA%\\nvim-data\\mason\\packages\\debugpy\\venv\\bin\\python.exe";
-    -- codelldbPath = "C:\\Users\\Saad_Abdullah\\AppData\\Local\\nvim-data\\mason\\bin\\codelldb.cmd";
-    -- debugpyPythonPath = vim.fn.expand("~/Appdata/Local/nvim-data/mason/packages/debugpy/venv/bin/python.exe");
-    -- codelldbPath = vim.fn.expand("~/AppData/Local/nvim-data/mason/bin/codelldb.cmd");
+-- debugpyPythonPath = "%LOCALAPPDATA%\\nvim-data\\mason\\packages\\debugpy\\venv\\bin\\python.exe";
+-- codelldbPath = "C:\\Users\\Saad_Abdullah\\AppData\\Local\\nvim-data\\mason\\bin\\codelldb.cmd";
+-- debugpyPythonPath = vim.fn.expand("~/Appdata/Local/nvim-data/mason/packages/debugpy/venv/bin/python.exe");
+-- codelldbPath = vim.fn.expand("~/AppData/Local/nvim-data/mason/bin/codelldb.cmd");
 -- end
 
 require("mason").setup()
 
-require("mason-tool-installer").setup{
+require("mason-tool-installer").setup {
     ensure_installed = {
         --lsp
-            "pyright",
-            "clangd",
-            "lua-language-server",
-            "bash-language-server",
+        "pyright",
+        "clangd",
+        "lua-language-server",
+        "bash-language-server",
         --lsp
         --dap
-            "codelldb",
-            "debugpy",
+        "codelldb",
+        "debugpy",
         --dap
         --formatter
-            "black",
-            "stylua",
+        "black",
+        "stylua",
         --formatter
-    }
+    },
 }
 
 -- lsp {{{1
 
 local lspconfig = require("lspconfig")
-lspconfig.pyright.setup{
+lspconfig.pyright.setup {
     settings = {
         python = {
             analysis = {
@@ -47,14 +47,14 @@ lspconfig.pyright.setup{
     },
 }
 
-lspconfig.lua_ls.setup{
+lspconfig.lua_ls.setup {
     settings = {
         Lua = {
             runtime = {
                 version = "LuaJIT",
             },
             diagnostics = {
-                globals = {"vim"},
+                globals = { "vim" },
             },
             workspace = {
                 library = vim.api.nvim_get_runtime_file("", true),
@@ -74,20 +74,20 @@ lspconfig.lua_ls.setup{
 --   Add: [-Wall, -Wextra]
 -- ```
 
-lspconfig.clangd.setup{}
+lspconfig.clangd.setup {}
 
-lspconfig.bashls.setup{
+lspconfig.bashls.setup {
     settings = {
         bashIde = {
-            globPattern = "*@(.sh|.inc|.bash|.command)"
-        }
-    }
+            globPattern = "*@(.sh|.inc|.bash|.command)",
+        },
+    },
 }
 -- lsp }}}1
 
 -- dap {{{1
 
-require("dap-python").setup(vim.fn.stdpath("data").."/mason/packages/debugpy/venv/bin/python")
+require("dap-python").setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
 
 local dap = require("dap")
 
@@ -95,10 +95,10 @@ dap.adapters.codelldb = {
     type = "server",
     port = "${port}",
     executable = {
-        command = vim.fn.stdpath("data").."/mason/packages/codelldb/extension/adapter/codelldb",
-        args = {"--port", "${port}"},
-        detached = false
-    }
+        command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/adapter/codelldb",
+        args = { "--port", "${port}" },
+        detached = false,
+    },
 }
 
 dap.configurations.c = {
@@ -106,28 +106,34 @@ dap.configurations.c = {
         name = "Launch",
         type = "codelldb",
         request = "launch",
-        program = function ()
+        program = function()
             return vim.fn.input("Path to exec", vim.fn.getcwd(), "file")
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
-    }
+    },
 }
 
 -- dap }}}1
 
 -- treesitter {{{1
-require("nvim-treesitter.configs").setup{
+require("nvim-treesitter.configs").setup {
     ensure_installed = {
         "c",
-        "lua", "luadoc",
-        "vim", "vimdoc",
+        "lua",
+        "luadoc",
+        "vim",
+        "vimdoc",
         "query",
-        "markdown", "markdown_inline",
+        "markdown",
+        "markdown_inline",
         "python",
         "bash",
         "powershell",
-        "json", "json5", "yaml", "toml",
+        "json",
+        "json5",
+        "yaml",
+        "toml",
         "cmake",
         "csv",
         "css",
@@ -137,6 +143,6 @@ require("nvim-treesitter.configs").setup{
     auto_install = false,
     highlight = {
         enable = true,
-    }
+    },
 }
 -- treesitter }}}1
