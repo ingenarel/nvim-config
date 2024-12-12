@@ -21,8 +21,7 @@ vo.ignorecase = true	-- Set ignorecase option
 vo.foldmethod = "marker"
 vo.foldcolumn = "auto"
 vo.signcolumn = "auto"
--- TODO: find out a way to make autocomplete semi transparent without setting winblend to 1
--- vo.winblend = 1
+vo.pumblend = 30
 
 vo.cursorline = true -- set cursorline
 vo.cursorcolumn = true
