@@ -20,6 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup{
     spec = {
         {
+
             {"nvimdev/dashboard-nvim", -- {{{
                 event = "VimEnter",
                 dependencies = {"nvim-tree/nvim-web-devicons", {"ingenarel/randomtips-nvim"}},
@@ -27,6 +28,7 @@ require("lazy").setup{
                     require("_plugins_._dashboard-config_")
                 end
             }, --}}}
+
             {"norcalli/nvim-colorizer.lua", -- {{{
                 config = function()
                     require("colorizer").setup{
@@ -44,7 +46,9 @@ require("lazy").setup{
                     }
                 end
             }, -- }}}
+
             {"MarcosTypeAP/color-picker.nvim", config = function() require("_plugins_._color-help-config_") end}, -- colorpicker
+
             {"nvim-lualine/lualine.nvim",-- {{{
                 dependencies = {"nvim-tree/nvim-web-devicons"},
                 config = function() 
@@ -61,10 +65,16 @@ require("lazy").setup{
                     }
                 end
             },-- }}}
+
             {"windwp/nvim-autopairs", event = "InsertEnter"}, -- for pairing
                 -- todo: find an alternative for nvim-autopairs{{{
                 -- because i just need an autopairer, and this has many options that i don't use, so bloat imo }}}
-            {"nvim-telescope/telescope.nvim", dependencies = {"nvim-lua/plenary.nvim", "debugloop/telescope-undo.nvim"}},
+
+            {"nvim-telescope/telescope.nvim",-- {{{
+                dependencies = {"nvim-lua/plenary.nvim", "debugloop/telescope-undo.nvim", {"nvim-telescope/telescope-fzf-native.nvim", build = "make"}},
+                config = require("_plugins_._telescope-config_")
+            },-- }}}
+
             {"lukas-reineke/indent-blankline.nvim",
                 config = function() require("ibl").setup{exclude = {filetypes = {"dashboard"}}} end
             },
@@ -105,12 +115,12 @@ require("lazy").setup{
                 -- TODO: fork this repo and make the code a bit better.{{{
                 -- don't know lua that much, but lsp pointed out that it's using deprecated functions, and there's a function that's unused.
                 -- it's a single file. not that big too. shouldn't be that hard to make it a bit better ig.}}}
-                {"folke/which-key.nvim", event = "VeryLazy"}, -- for keybindings help
-                -- {"debugloop/telescope-undo.nvim"}, -- telescope undo plugin
-                -- {"MunifTanjim/nui.nvim"}, -- dependency for some plugins.
-                {"ingenarel/nvim-pairMan"}, -- my plugin for pair stuff
-                {"smoka7/hop.nvim", version="*"}, -- for hopping
-                {"m4xshen/hardtime.nvim", dependencies = { "MunifTanjim/nui.nvim" }}, -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
+            {"folke/which-key.nvim", event = "VeryLazy"}, -- for keybindings help
+            -- {"debugloop/telescope-undo.nvim"}, -- telescope undo plugin
+            -- {"MunifTanjim/nui.nvim"}, -- dependency for some plugins.
+            {"ingenarel/nvim-pairMan"}, -- my plugin for pair stuff
+            {"smoka7/hop.nvim", version="*"}, -- for hopping
+            {"m4xshen/hardtime.nvim", dependencies = { "MunifTanjim/nui.nvim" }}, -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
         }
     }
 }
@@ -123,8 +133,6 @@ require("which-key").setup{ -- {{{1
 require("hop").setup{keys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"}
 require("hardtime").setup()
 
-require("_plugins_._telescope-config_")
 require("_plugins_._language-helps_") -- config that has my lsp, dap and autocompletion config
-
 require("_plugins_._focus-config_")
 require("_plugins_._autopairs-config_")
