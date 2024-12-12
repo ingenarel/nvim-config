@@ -1,14 +1,3 @@
--- local debugpyPythonPath, codelldbPath;
--- if vim.fn.has("win32") == 0 then
--- debugpyPythonPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python";
--- codelldbPath = vim.fn.expand("~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb");
--- else
--- debugpyPythonPath = "%LOCALAPPDATA%\\nvim-data\\mason\\packages\\debugpy\\venv\\bin\\python.exe";
--- codelldbPath = "C:\\Users\\Saad_Abdullah\\AppData\\Local\\nvim-data\\mason\\bin\\codelldb.cmd";
--- debugpyPythonPath = vim.fn.expand("~/Appdata/Local/nvim-data/mason/packages/debugpy/venv/bin/python.exe");
--- codelldbPath = vim.fn.expand("~/AppData/Local/nvim-data/mason/bin/codelldb.cmd");
--- end
-
 require("mason").setup()
 
 require("mason-tool-installer").setup {
@@ -26,6 +15,7 @@ require("mason-tool-installer").setup {
         --formatter
         "black",
         "stylua",
+        "clang-format"
         --formatter
     },
 }
@@ -95,7 +85,7 @@ dap.adapters.codelldb = {
     type = "server",
     port = "${port}",
     executable = {
-        command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/adapter/codelldb",
+        command = vim.fn.stdpath("data") .. "/mason/codelldb",
         args = { "--port", "${port}" },
         detached = false,
     },

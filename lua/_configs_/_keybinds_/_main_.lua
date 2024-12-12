@@ -88,9 +88,11 @@ vim.keymap.set( -- formatter {{{1
         local current_filetype = vim.bo.filetype
         vim.cmd("w")
         if current_filetype == "python" then
-            vim.cmd("!" .. vim.fn.stdpath("data") .. "/mason/packages/black/venv/bin/black" .. " %")
+            vim.cmd("!" .. vim.fn.stdpath("data") .. "/mason/bin/black" .. " %")
         elseif current_filetype == "lua" then
-            vim.cmd("!" .. vim.fn.stdpath("data") .. "/mason/packages/stylua/stylua" .. " %")
+            vim.cmd("!" .. vim.fn.stdpath("data") .. "/mason/bin/stylua" .. " %")
+        elseif current_filetype == "c" then
+            vim.cmd("!" .. vim.fn.stdpath("data") .. "/mason/bin/clang-format" .. " -i %")
         else
             vim.notify("Filetype hasn't been implemented yet", "WARN")
         end
