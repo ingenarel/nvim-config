@@ -13,13 +13,20 @@ require("mason").setup()
 
 require("mason-tool-installer").setup{
     ensure_installed = {
-        "pyright",
-        "clangd",
-        "lua-language-server",
-        "bash-language-server",
-        "codelldb",
-        "debugpy",
-        "black",
+        --lsp
+            "pyright",
+            "clangd",
+            "lua-language-server",
+            "bash-language-server",
+        --lsp
+        --dap
+            "codelldb",
+            "debugpy",
+        --dap
+        --formatter
+            "black",
+            "stylua",
+        --formatter
     }
 }
 
