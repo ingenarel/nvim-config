@@ -295,7 +295,7 @@ vim.keymap.set(
     CK_SetKeymap_n("<leader>db", ":DapToggleBreakpoint<CR>", "Breakpoint toggle")
     CK_SetKeymap_n("<leader>d<CR><CR>", ":DapContinue<CR>", "DapContinue")
     CK_Submap("<leader>dl", ":DapStepOver<CR>", "<leader>", {desc="DapStepOver", wait=100})
-    CK_Submap("<leader>dj", ":DapStepInto<CR>", "<leaderd", {desc="DapStepInto", wait=100})
+    CK_Submap("<leader>dj", ":DapStepInto<CR>", "<leader>d", {desc="DapStepInto", wait=100})
     CK_Submap("<leader>dh", ":DapStepOut<CR>", "<leader>d", {desc="DapStepOut", wait=100})
     -- kms("<Leader>dr", function() require("dap").repl.open() end)
     -- kms("<Leader>dl", function() require("dap").run_last() end)

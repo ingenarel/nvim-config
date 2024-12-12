@@ -25,6 +25,7 @@ function CK_SimKeys(keys, flags)
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), flags, false)
 end -- }}}1
 
+---TODO: make this a seperate plugin
 ---@nodoc CK_Submap_n() {{{1
 ---@nodoc docs {{{2
 ---### creates submaps
@@ -70,9 +71,11 @@ function CK_Submap(keymap, action, submaplevel, opts)
     end
 
     vim.api.nvim_set_keymap(
-        mode,
-        keymap,
-        action .. ":lua "..wait.."CK_SimKeys('"..whichkey..submaplevel.."')<CR>",
+        mode, keymap,
+        action .. ":lua "..wait..
+        "vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('"..
+        whichkey..submaplevel..
+        "', true, false, true), 'nt', false)<CR>",
         {
             noremap=true,
             silent=true,
