@@ -17,57 +17,88 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+require("lazy").setup{
     spec = {
         {
-            -- {"nvim-tree/nvim-web-devicons"}, -- nerd fonts glyph plugin
-            {"nvimdev/dashboard-nvim", event = "VimEnter", dependencies = {"nvim-tree/nvim-web-devicons"}}, -- dashboard
-            {"norcalli/nvim-colorizer.lua"}, -- for showing colors
-            {"MarcosTypeAP/color-picker.nvim"}, -- colorpicker
-            {"nvim-lualine/lualine.nvim", dependencies = {"nvim-tree/nvim-web-devicons"}}, --  the statusline below
+            {"nvimdev/dashboard-nvim", -- {{{
+                event = "VimEnter",
+                dependencies = {"nvim-tree/nvim-web-devicons", {"ingenarel/randomtips-nvim"}},
+                config = function()
+                    require("_plugins_._dashboard-config_")
+                end
+            }, --}}}
+            {"norcalli/nvim-colorizer.lua", -- {{{
+                config = function()
+                    require("colorizer").setup{
+                        DEFAULT_OPTIONS = {
+                            RGB      = true;
+                            RRGGBB   = true;
+                            names    = true;
+                            RRGGBBAA = true;
+                            rgb_fn   = true;
+                            hsl_fn   = true;
+                            css      = true;
+                            css_fn   = true;
+                        },
+                        "*"
+                    }
+                end
+            }, -- }}}
+            {"MarcosTypeAP/color-picker.nvim", config = function() require("_plugins_._color-help-config_") end}, -- colorpicker
+            {"nvim-lualine/lualine.nvim",-- {{{
+                dependencies = {"nvim-tree/nvim-web-devicons"},
+                config = function() 
+                    require("lualine").setup{
+                        options = {
+                            disabled_filetypes = {"dashboard"}
+                        },
+                        sections = {
+                            lualine_z = {
+                                "location",
+                                "selectioncount",
+                            }
+                        }
+                    }
+                end
+            },-- }}}
             {"windwp/nvim-autopairs", event = "InsertEnter"}, -- for pairing
                 -- todo: find an alternative for nvim-autopairs{{{
                 -- because i just need an autopairer, and this has many options that i don't use, so bloat imo }}}
-                -- {"nvim-lua/plenary.nvim"}, -- a dependency for some plugins
-                {"nvim-telescope/telescope.nvim", dependencies = {"nvim-lua/plenary.nvim", "debugloop/telescope-undo.nvim"}}, -- pickers and stuff
-                {"lukas-reineke/indent-blankline.nvim"}, -- for showing indent lines.
-                {"lewis6991/gitsigns.nvim"}, -- git signs and stuff 
+            {"nvim-telescope/telescope.nvim", dependencies = {"nvim-lua/plenary.nvim", "debugloop/telescope-undo.nvim"}},
+            {"lukas-reineke/indent-blankline.nvim",
+                config = function() require("ibl").setup{exclude = {filetypes = {"dashboard"}}} end
+            },
+            {"lewis6991/gitsigns.nvim", config = true },
                 -- todo: find an alternative for gitsigns{{{
                 -- gitsigns is too bloated for my current config, i just need the signs for now }}}
-            -- language helps
-            {"williamboman/mason.nvim"}, -- mason, the lsp, dap, linter, and formatter manager
-            {"WhoIsSethDaniel/mason-tool-installer.nvim"}, -- auto installer
-                -- dap
-                {"mfussenegger/nvim-dap"}, -- nvim debug adapter protocol
-                {"rcarriga/nvim-dap-ui", dependencies = {"nvim-neotest/nvim-nio"}}, -- ui for the nvim dap, need to configure it.
-                {"mfussenegger/nvim-dap-python"}, -- dap configs for python
-                -- dap
-                -- {"ms-jpq/coq_nvim", branch = "coq", lazy = false}, -- coq, the autocompletion plugin
-                {
-                    "neovim/nvim-lspconfig",
-                    lazy = false,
-                    dependencies = {
-                        { "ms-jpq/coq_nvim", branch = "coq" }
-                    },
-                    init = function()
-                        vim.g.coq_settings = {
-                            auto_start = "shut-up",
-                            keymap = {
-                                eval_snips = "<leader>cs",
-                                recommended = false,
-                                jump_to_mark = "<M-h>"
-                            },
-                            display = {
-                                preview = {
-                                    resolve_timeout = 1
-                                },
-                                mark_applied_notify = false
-                            }
-                        }
-                    end
+            {"williamboman/mason.nvim"},
+            {"WhoIsSethDaniel/mason-tool-installer.nvim"},
+            {"mfussenegger/nvim-dap"}, -- nvim debug adapter protocol
+            {"rcarriga/nvim-dap-ui", dependencies = {"nvim-neotest/nvim-nio"}, config = true},
+            {"mfussenegger/nvim-dap-python"},
+            {"neovim/nvim-lspconfig",-- {{{
+                lazy = false,
+                dependencies = {
+                    { "ms-jpq/coq_nvim", branch = "coq" }
                 },
-                {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-            -- language helps
+                init = function()
+                    vim.g.coq_settings = {
+                        auto_start = "shut-up",
+                        keymap = {
+                            eval_snips = "<leader>cs",
+                            recommended = false,
+                            jump_to_mark = "<M-h>"
+                        },
+                        display = {
+                            preview = {
+                                resolve_timeout = 1
+                            },
+                            mark_applied_notify = false
+                        }
+                    }
+                end
+            },-- }}}
+            {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
             {"voldikss/vim-floaterm"}, -- floaterm, the floating terminal emulator in neovim
             {"nvim-focus/focus.nvim"}, -- for autoresizing split buffers
             {"https://gitlab.com/yorickpeterse/nvim-window.git"}, -- to quickly switch split buffers.
@@ -80,47 +111,20 @@ require("lazy").setup({
                 {"ingenarel/nvim-pairMan"}, -- my plugin for pair stuff
                 {"smoka7/hop.nvim", version="*"}, -- for hopping
                 {"m4xshen/hardtime.nvim", dependencies = { "MunifTanjim/nui.nvim" }}, -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
-                {"ingenarel/randomtips-nvim"}
         }
     }
-})
-
-require("ibl").setup{ -- indent line config {{{1
-    exclude={
-        filetypes={
-            "dashboard"
-        }
-    },
-} -- }}}1
-
-require("dapui").setup()
-require("gitsigns").setup()
-
-require("lualine").setup{ -- {{{1
-    options = {
-        disabled_filetypes = {"dashboard"}
-    },
-    sections = {
-        lualine_z = {
-            "location",
-            "selectioncount",
-        }
-    }
-} --}}}1
+}
 
 require("which-key").setup{ -- {{{1
     preset = "helix",
     no_overlap = true,
-    -- layout = {width={max=120}}
-    -- win = {width={max=999}}
 } -- }}}1
 
 require("hop").setup{keys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"}
 require("hardtime").setup()
 
 require("_plugins_._telescope-config_")
-require("_plugins_._dashboard-config_")
 require("_plugins_._language-helps_") -- config that has my lsp, dap and autocompletion config
-require("_plugins_._color-help-config_")
+
 require("_plugins_._focus-config_")
 require("_plugins_._autopairs-config_")
