@@ -101,6 +101,7 @@ vim.keymap.set( -- runner {{{1
                 " --titleposition=center --autoclose=0 "..
                 stuff
             )
+
         end
 
         vim.cmd("w")
@@ -109,14 +110,14 @@ vim.keymap.set( -- runner {{{1
         local file_without_extension = vim.fn.fnamemodify(file_with_extension, ':r')
 
         local function execute_with(title, program)
-            floating_terminal(title, program.." "..file_with_extension..'"')
+            floating_terminal(title, program..' "'..file_with_extension..'"')
         end
 
         if current_filetype == "python" then
             execute_with(current_filetype, current_filetype)
 
         elseif current_filetype == "sh" then
-            execute_with("bash", "bash ")
+            execute_with("bash", "bash")
 
         elseif current_filetype == "c" then
             -- if using windows, make sure you set your CC variable
