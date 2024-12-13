@@ -94,14 +94,22 @@ require("lazy").setup {
                     require("ibl").setup { exclude = { filetypes = { "dashboard" } } }
                 end,
             },
+
             { "lewis6991/gitsigns.nvim", config = true },
+
             -- todo: find an alternative for gitsigns{{{
             -- gitsigns is too bloated for my current config, i just need the signs for now }}}
+
             { "williamboman/mason.nvim" },
+
             { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+
             { "mfussenegger/nvim-dap" }, -- nvim debug adapter protocol
+
             { "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" }, config = true },
+
             { "mfussenegger/nvim-dap-python" },
+
             {
                 "neovim/nvim-lspconfig", -- {{{
                 lazy = false,
@@ -126,18 +134,27 @@ require("lazy").setup {
                 end,
             }, -- }}}
             { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+
             { "voldikss/vim-floaterm" }, -- floaterm, the floating terminal emulator in neovim
+
             { "nvim-focus/focus.nvim" }, -- for autoresizing split buffers
+
             { "https://gitlab.com/yorickpeterse/nvim-window.git" }, -- to quickly switch split buffers.
             -- TODO: fork this repo and make the code a bit better.{{{
             -- don't know lua that much, but lsp pointed out that it's using deprecated functions, and there's a function that's unused.
             -- it's a single file. not that big too. shouldn't be that hard to make it a bit better ig.}}}
+
             { "folke/which-key.nvim", event = "VeryLazy" }, -- for keybindings help
-            -- {"debugloop/telescope-undo.nvim"}, -- telescope undo plugin
-            -- {"MunifTanjim/nui.nvim"}, -- dependency for some plugins.
+
             { "ingenarel/nvim-pairMan" }, -- my plugin for pair stuff
+
             { "smoka7/hop.nvim", version = "*" }, -- for hopping
+
             { "m4xshen/hardtime.nvim", dependencies = { "MunifTanjim/nui.nvim" } }, -- forces you to be efficient with your vim motions as much as it can. i think this is the only time i like being forced.
+
+            {"folke/persistence.nvim", event = "BufReadPre", opts = {}}
+                --TODO: use persisted instead of this cz more features?
+
         },
     },
 }

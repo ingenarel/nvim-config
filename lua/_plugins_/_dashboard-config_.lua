@@ -110,11 +110,21 @@ require("dashboard").setup {
                 key_format = " %s",
             },
             {
-                desc = "last file",
-                action = function()
-                    CK_SimKeys("`0")
-                end,
+                desc  = "Last session",
+                action = function() require("persistence").load{last = true} end,
                 key = "l",
+                key_format = " %s",
+            },
+            {
+                desc  = "Last session (cwd)",
+                action = function() require("persistence").load() end,
+                key = "L",
+                key_format = " %s",
+            },
+            {
+                desc  = "Last session (pick)",
+                action = function() require("persistence").select() end,
+                key = "<M-l>",
                 key_format = " %s",
             },
         },
