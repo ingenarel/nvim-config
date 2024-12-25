@@ -38,14 +38,18 @@ require("lazy").setup {
             -- TODO: fork this repo and make the code a bit better.{{{
             -- don't know lua that much, but lsp pointed out that it's using deprecated functions, and there's a function that's unused.
             -- it's a single file. not that big too. shouldn't be that hard to make it a bit better ig.}}}
-            { "folke/which-key.nvim", event = "VeryLazy", config = {preset = "helix", no_overlap = true} }, -- for keybindings help
+            { "folke/which-key.nvim", event = "VeryLazy", config = { preset = "helix", no_overlap = true } }, -- for keybindings help
             { "ingenarel/nvim-pairMan" }, -- my plugin for pair stuff
-            { "smoka7/hop.nvim", version = "*", config = { keys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" } },
+            {
+                "smoka7/hop.nvim",
+                version = "*",
+                config = { keys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" },
+            },
             { "m4xshen/hardtime.nvim", dependencies = { "MunifTanjim/nui.nvim" }, config = true },
             { "folke/persistence.nvim", event = "BufReadPre", opts = {} },
             --TODO: use persisted instead of this cz more features?
             { "IogaMaster/neocord", event = "VeryLazy", config = true },
+            {"imsnif/kdl.vim", ft = "kdl"},
         },
     },
 }
-
