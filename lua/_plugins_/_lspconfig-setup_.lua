@@ -72,13 +72,13 @@ return {
                 },
             },
         }
-
-        lspconfig.harper_ls.setup {
+        
+        lspconfig.ltex.setup {
             settings = {
-                ["harper-ls"] = {
-                    avoid_curses = false,
-                },
-            },
+                ltex = {
+                    language = "en-GB"
+                }
+            }
         }
     end,
 }

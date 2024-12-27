@@ -11,7 +11,7 @@ return {
                     "clangd",
                     "lua-language-server",
                     "bash-language-server",
-                    "harper-ls",
+                    "ltex-ls",
                     --lsp
                     --dap
                     "codelldb",
