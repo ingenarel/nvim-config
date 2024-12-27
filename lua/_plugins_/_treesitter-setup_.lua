@@ -40,5 +40,5 @@ return {
         highlight = {
             enable = true,
         },
-    }
+    },
 }

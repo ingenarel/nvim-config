@@ -5,7 +5,7 @@ return {
         {
             "mfussenegger/nvim-dap",
             dependencies = { "mfussenegger/nvim-dap-python" },
-            config = function ()
+            config = function()
                 local dap = require("dap")
                 require("dap-python").setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
                 dap.adapters.codelldb = {
@@ -29,7 +29,7 @@ return {
                         stopOnEntry = false,
                     },
                 }
-            end
+            end,
         },
     },
     config = true,

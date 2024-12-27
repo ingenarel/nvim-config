@@ -49,7 +49,7 @@ require("lazy").setup {
             { "folke/persistence.nvim", event = "BufReadPre", opts = {} },
             --TODO: use persisted instead of this cz more features?
             { "IogaMaster/neocord", event = "VeryLazy", config = true },
-            {"imsnif/kdl.vim", ft = "kdl"},
+            { "imsnif/kdl.vim", ft = "kdl" },
         },
     },
 }

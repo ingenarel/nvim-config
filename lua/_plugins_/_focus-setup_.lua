@@ -35,5 +35,5 @@ return {
             -- make sure i update everything and update this plugin too before i open an issue
             -- winhighlight = true, -- Auto highlighting for focussed/unfocussed windows
         },
-    }
+    },
 }
