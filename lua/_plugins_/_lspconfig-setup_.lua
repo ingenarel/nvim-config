@@ -63,12 +63,20 @@ return {
         --   Add: [-Wall, -Wextra]
         -- ```
 
-        lspconfig.clangd.setup{}
+        lspconfig.clangd.setup {}
 
         lspconfig.bashls.setup {
             settings = {
                 bashIde = {
                     globPattern = "*@(.sh|.inc|.bash|.command)",
+                },
+            },
+        }
+
+        lspconfig.harper_ls.setup {
+            settings = {
+                ["harper-ls"] = {
+                    avoid_curses = false,
                 },
             },
         }
