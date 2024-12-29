@@ -72,13 +72,13 @@ return {
                 },
             },
         }
-        
+
         lspconfig.ltex.setup {
             settings = {
                 ltex = {
-                    language = "en-GB"
-                }
-            }
+                    language = "en-GB",
+                },
+            },
         }
     end,
 }
