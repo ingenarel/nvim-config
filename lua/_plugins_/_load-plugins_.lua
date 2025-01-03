@@ -47,10 +47,16 @@ require("lazy").setup {
             },
             { "m4xshen/hardtime.nvim", dependencies = { "MunifTanjim/nui.nvim" }, config = true },
             { "folke/persistence.nvim", event = "BufReadPre", opts = {} },
-            --TODO: use persisted instead of this cz more features?
             { "IogaMaster/neocord", event = "VeryLazy", config = true },
             { "imsnif/kdl.vim", ft = "kdl" },
             { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
+            {
+                "stevearc/conform.nvim",
+                opts = {
+                    formatters_by_ft = { lua = { "stylua" }, python = { "black" }, c = { "clang-format" } },
+                    format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
+                },
+            },
         },
     },
 }

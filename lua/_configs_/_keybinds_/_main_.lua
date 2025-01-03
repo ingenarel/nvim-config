@@ -82,25 +82,6 @@ vim.keymap.set( -- updater {{{1
     { desc = "tries to update everything" }
 ) -- }}}1
 
-vim.keymap.set( -- formatter {{{1
-    "n",
-    "<leader><m-f>", -- TODO: instead of doing a custom formatter keybind, change gq for formatters
-    function()
-        local current_filetype = vim.bo.filetype
-        vim.cmd("w")
-        if current_filetype == "python" then
-            vim.cmd("!" .. vim.fn.stdpath("data") .. "/mason/bin/black" .. " %")
-        elseif current_filetype == "lua" then
-            vim.cmd("!" .. vim.fn.stdpath("data") .. "/mason/bin/stylua" .. " %")
-        elseif current_filetype == "c" then
-            vim.cmd("!" .. vim.fn.stdpath("data") .. "/mason/bin/clang-format" .. " -i %")
-        else
-            vim.notify("Filetype hasn't been implemented yet", "WARN")
-        end
-    end,
-    { desc = "Tries to run a formatter" }
-) -- }}}1
-
 vim.keymap.set( -- runner {{{1
     "n",
     "<leader>r",
