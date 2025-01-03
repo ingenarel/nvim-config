@@ -50,6 +50,7 @@ require("lazy").setup {
             --TODO: use persisted instead of this cz more features?
             { "IogaMaster/neocord", event = "VeryLazy", config = true },
             { "imsnif/kdl.vim", ft = "kdl" },
+            { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
         },
     },
 }

@@ -27,17 +27,6 @@ vo.cursorline = true -- set cursorline
 vo.cursorcolumn = true
 vo.textwidth = 120
 
-vim.api.nvim_create_autocmd("BufEnter", {
-    callback = function()
-        if vim.opt_local.commentstring ~= "" then
-            -- todo: this doesn't fucking work after i've split the same buffer.
-            vim.cmd(
-                "match Todo =\\c" .. vim.split(vim.opt_local.commentstring._value, " ")[1] .. " *[@nodoc]* *todo.*="
-            )
-        end
-    end,
-})
-
 vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         local currentFileType = vim.opt_local.filetype._value
