@@ -50,22 +50,7 @@ require("lazy").setup {
             { "IogaMaster/neocord", event = "VeryLazy", config = true },
             { "imsnif/kdl.vim", ft = "kdl" },
             { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
-            {
-                "stevearc/conform.nvim",
-                opts = {
-                    formatters_by_ft = {
-                        lua = { "stylua" },
-                        python = { "black" },
-                        c = { "clang-format" },
-                        bash = { "beautysh" },
-                        csh = { "beautysh" },
-                        ksh = { "beautysh" },
-                        zsh = { "beautysh" },
-                        sh = { "beautysh" },
-                    },
-                    format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
-                },
-            },
+            require("_plugins_._conform-setup_"),
         },
     },
 }
