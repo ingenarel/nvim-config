@@ -21,6 +21,7 @@ return {
                     "black",
                     "stylua",
                     "clang-format",
+                    "beautysh",
                     --formatter
                 },
             },
