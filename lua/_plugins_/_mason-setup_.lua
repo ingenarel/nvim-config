@@ -12,6 +12,7 @@ return {
                     "lua-language-server",
                     "bash-language-server",
                     "ltex-ls",
+                    "yaml-language-server",
                     --lsp
                     --dap
                     "codelldb",
