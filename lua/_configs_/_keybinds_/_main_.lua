@@ -1,10 +1,5 @@
 local wk = require("which-key")
 
--- remapppings {{{1
-vim.keymap.set({ "n", "v", "o" }, ";", ":")
-vim.keymap.set({ "n", "v", "o" }, ":", ";")
--- remapppings }}}1
-
 -- alt mappings {{{
 -- map right alt to <ESC>. on windows, i use powertoys.
 -- todo: need to use these mappings more often.
