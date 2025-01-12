@@ -2,7 +2,7 @@ local wk = require("which-key")
 
 -- alt mappings {{{
 -- map right alt to <ESC>. on windows, i use powertoys.
--- todo: need to use these mappings more often.
+-- NOTE: need to use these mappings more often.
 local function alt_keymap(keymap, action)
     vim.keymap.set({ "n", "v", "o", "i", "c", "t" }, keymap, action)
 end
