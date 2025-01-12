@@ -18,6 +18,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
+    -- TODO: download the neovim tmux movement plugin
     spec = {
         {
             require("_plugins_._dashboard-setup_"),
