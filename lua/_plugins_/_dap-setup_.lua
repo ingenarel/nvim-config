@@ -46,7 +46,19 @@ return {
                         type = "codelldb",
                         request = "launch",
                         program = function()
-                            return vim.fn.input("Path to exec", vim.fn.getcwd(), "file")
+                            local outputBin = vim.fn.expand("%:p:r") .. "-debug"
+                            local run = vim.system({
+                                "cc",
+                                "-g",
+                                vim.fn.expand("%:p"),
+                                "-o",
+                                outputBin,
+                            }):wait()
+                            if run.code ~= 0 then
+                                vim.print(run)
+                                error("Failed to compile file")
+                            end
+                            return outputBin
                         end,
                         cwd = "${workspaceFolder}",
                         stopOnEntry = false,
