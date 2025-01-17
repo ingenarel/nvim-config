@@ -52,6 +52,23 @@ require("lazy").setup {
             { "imsnif/kdl.vim", ft = "kdl" },
             { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
             require("_plugins_._conform-setup_"),
+            {
+                "christoomey/vim-tmux-navigator",
+                cmd = {
+                    "TmuxNavigateLeft",
+                    "TmuxNavigateDown",
+                    "TmuxNavigateUp",
+                    "TmuxNavigateRight",
+                    "TmuxNavigatePrevious",
+                    "TmuxNavigatorProcessList",
+                },
+                keys = {
+                    { "<M-H>", "<cmd>TmuxNavigateLeft<cr>" },
+                    { "<M-J>", "<cmd>TmuxNavigateDown<cr>" },
+                    { "<M-K>", "<cmd>TmuxNavigateUp<cr>" },
+                    { "<M-L>", "<cmd>TmuxNavigateRight<cr>" },
+                },
+            },
         },
     },
 }
