@@ -1,7 +1,8 @@
 -- TODO: make all colors different as much as i can, and make sure that i have all types of color highlight groups
 
 -- nvim {{{
-vim.api.nvim_set_hl(0, "Normal", { fg = "#FF1163", bg = "#110015" })
+-- vim.api.nvim_set_hl(0, "Normal", { fg = "#FF1163", bg = "#110015" })
+vim.api.nvim_set_hl(0, "Normal", { fg = "#FF1163", bg = "NONE" })
 vim.api.nvim_set_hl(0, "Visual", { reverse = true })
 
 vim.api.nvim_set_hl(0, "SignColumn", { fg = "#00FFC8" })
