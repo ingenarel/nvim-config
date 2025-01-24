@@ -11,6 +11,7 @@ return {
                     "clangd",
                     "lua-language-server",
                     "bash-language-server",
+                    "termux-language-server",
                     "ltex-ls",
                     "yaml-language-server",
                     --lsp
