@@ -42,16 +42,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- TODO: open an issue about either making this an actual thing, or removing this from the help page.
--- vim.api.nvim_create_autocmd(
---     "UserGettingBored",
---     {
---         callback = function (_)
---             print("oi")
---         end
---     }
--- )
-
 if vo.shell._value == "cmd.exe" then
     vim.g.floaterm_shell = "%SystemRoot%\\System32\\cmd.exe /k %userprofile%\\.cmdrc.cmd"
 end
