@@ -94,7 +94,7 @@ vim.keymap.set( -- runner {{{1
 
         vim.cmd("w")
 
-        local file_with_extension = vim.fn.expand("%")
+        local file_with_extension = vim.fn.expand("%:p")
         local file_without_extension = vim.fn.fnamemodify(file_with_extension, ":r")
 
         local function execute_with(title, program)
@@ -104,7 +104,7 @@ vim.keymap.set( -- runner {{{1
         if current_filetype == "python" then
             execute_with(current_filetype, current_filetype)
         elseif current_filetype == "sh" then
-            execute_with("bash", "bash")
+            floating_terminal(current_filetype, file_with_extension)
         elseif current_filetype == "c" then
             -- if using windows, make sure you set your CC variable
             -- i set it to `gcc -Wall -Wextra`
