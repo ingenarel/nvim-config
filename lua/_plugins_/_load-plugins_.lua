@@ -48,7 +48,6 @@ require("lazy").setup {
             },
             { "m4xshen/hardtime.nvim", dependencies = { "MunifTanjim/nui.nvim" }, config = true },
             { "folke/persistence.nvim", event = "BufReadPre", opts = {} },
-            { "IogaMaster/neocord", event = "VeryLazy", config = true },
             { "imsnif/kdl.vim", ft = "kdl" },
             { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
             require("_plugins_._conform-setup_"),
