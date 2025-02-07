@@ -46,7 +46,13 @@ return {
                         globals = { "vim" },
                     },
                     workspace = {
-                        library = vim.api.nvim_get_runtime_file("", true),
+                        -- library = table.insert(vim.api.nvim_get_runtime_file("", true), "${3rd}/luv/library")
+                        library = {
+                            vim.env.VIMRUNTIME,
+                            "${3rd}/luv/library",
+                            vim.fn.stdpath("data") .. "/lazy",
+                            -- "${3rd}/busted/library",
+                        },
                         checkThirdParty = false,
                     },
                     telemetry = {
