@@ -22,6 +22,9 @@ return {
             vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#00ffc8" })
         end)
 
-        require("ibl").setup { exclude = { filetypes = { "dashboard" } }, indent = { highlight = highlight } }
+        require("ibl").setup {
+            exclude = { filetypes = { "dashboard" } },
+            indent = { highlight = highlight, char = "▏" },
+        }
     end,
 }
