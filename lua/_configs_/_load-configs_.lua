@@ -3,29 +3,27 @@ CK_SetKeymap_n("<Space>", "<Nop>")
 vim.g.mapleader = " "
 -- leader map }}}1
 
-local vo = vim.opt
-
 -- tab changes
-vo.expandtab = true -- Use spaces instead of tabs
-vo.tabstop = 4 -- Number of spaces that a <Tab> in the file counts for
-vo.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
-vo.softtabstop = 4 -- Number of spaces that a <Tab> counts for while performing editing operations
+vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.tabstop = 4 -- Number of spaces that a <Tab> in the file counts for
+vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
+vim.opt.softtabstop = 4 -- Number of spaces that a <Tab> counts for while performing editing operations
 -- tab changes
 
-vo.clipboard = "unnamedplus" --uses the system clipboard
+vim.opt.clipboard = "unnamedplus" --uses the system clipboard
 
-vo.scrolloff = 39 -- keep the scroll in the middle.
+vim.opt.scrolloff = 39 -- keep the scroll in the middle.
 
-vo.ignorecase = true -- Set ignorecase option
+vim.opt.ignorecase = true -- Set ignorecase option
 
-vo.foldmethod = "marker"
-vo.foldcolumn = "auto"
-vo.signcolumn = "auto"
-vo.pumblend = 30
+vim.opt.foldmethod = "marker"
+vim.opt.foldcolumn = "auto"
+vim.opt.signcolumn = "auto"
+vim.opt.pumblend = 30
 
-vo.cursorline = true -- set cursorline
-vo.cursorcolumn = true
-vo.textwidth = 120
+vim.opt.cursorline = true -- set cursorline
+vim.opt.cursorcolumn = true
+vim.opt.textwidth = 120
 
 vim.api.nvim_create_autocmd("FileType", {
     callback = function()
@@ -42,16 +40,16 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-if vo.shell._value == "cmd.exe" then
+if vim.opt.shell._value == "cmd.exe" then
     vim.g.floaterm_shell = "%SystemRoot%\\System32\\cmd.exe /k %userprofile%\\.cmdrc.cmd"
 end
 
-vo.colorcolumn = "+0,-20,-40"
-vo.laststatus = 3
+vim.opt.colorcolumn = "+0,-20,-40"
+vim.opt.laststatus = 3
 
 vim.lsp.log_level = vim.lsp.log_levels.ERROR
 vim.lsp.set_log_level("ERROR")
-vo.mouse = ""
-vo.fileformats = "unix,dos"
+vim.opt.mouse = ""
+vim.opt.fileformats = "unix,dos"
 -- vo.matchpairs = "(:),{:},[:],<:>"
-vo.matchpairs = "(:),{:},[:]"
+vim.opt.matchpairs = "(:),{:},[:]"
