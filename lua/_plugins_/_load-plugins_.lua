@@ -74,6 +74,7 @@ require("lazy").setup {
                 opts = {},
                 cmd = { "Typr", "TyprStats" },
             },
+            { "nvzone/showkeys", cmd = "ShowkeysToggle", opts = { timeout = 2, maxkeys = 9, position = "top-right" } },
         },
     },
 }
