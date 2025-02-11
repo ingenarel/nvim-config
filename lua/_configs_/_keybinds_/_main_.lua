@@ -244,6 +244,7 @@ end, { desc = "Execute command and tries to close the terminal" })
 vim.keymap.set("n", "<leader><leader>E", function()
     CK_FloatermExecuteCommand(0)
 end, { desc = "Execute command and keeps the terminal open" })
+vim.keymap.set("t", "<M-esc>", "<C-\\><C-n>")
 -- terminal }}}1
 
 -- color-picker {{{1
