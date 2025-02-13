@@ -19,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
     -- TODO: download the profiler plugin somehow (https://github.com/folke/snacks.nvim/blob/main/docs/profiler.md)
+    -- TODO: download neovim tmux navigator (https://github.com/alexghergh/nvim-tmux-navigation) or create my own where the stupid c-l c-h isn't predefined
     spec = {
         {
             require("_plugins_._dashboard-setup_"),
