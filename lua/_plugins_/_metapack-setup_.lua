@@ -16,6 +16,7 @@ return {
             "termux-language-server",
             "ltex-ls",
             "yaml-language-server",
+            "rust-analyzer",
             --lsp
             --dap
             "codelldb",
