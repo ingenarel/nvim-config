@@ -20,6 +20,7 @@ return {
             --dap
             "codelldb",
             "debugpy",
+            "bash-debug-adapter",
             --dap
             --formatter
             "black",
