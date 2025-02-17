@@ -9,7 +9,7 @@ vim.keymap.set( -- Change split {{{
     { desc = "Change split" }
 ) -- }}}
 
-CK_SetKeymap_n("<leader>wf", "<C-w>|<C-w>_", "Max out split")
+CK_SetKeymap_n("<leader>wz", "<C-w>|<C-w>_", "Max out split")
 
 ---@nodoc CK_ChangeWindowAndShowHelp() {{{
 ---@nodoc docs {{{
