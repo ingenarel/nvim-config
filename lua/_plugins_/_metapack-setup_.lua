@@ -29,6 +29,7 @@ return {
             "stylua",
             "clang-format",
             "beautysh",
+            "alejandra",
             --formatter
         }
     end,

@@ -10,6 +10,7 @@ return {
             ksh = { "beautysh" },
             zsh = { "beautysh" },
             sh = { "beautysh" },
+            nix = { "alejandra" },
         },
         format_on_save = function(bufnr)
             if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
