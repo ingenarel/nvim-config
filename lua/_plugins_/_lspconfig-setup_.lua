@@ -117,5 +117,7 @@ return {
                 }
             end,
         })
+
+        lspconfig.nil_ls.setup {}
     end,
 }
