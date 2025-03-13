@@ -108,13 +108,19 @@ vim.keymap.set( -- runner {{{1
         elseif current_filetype == "c" then
             -- if using windows, make sure you set your CC variable
             -- i set it to `gcc -Wall -Wextra`
-            local linuxbin = "./"
-            if vim.fn.has("win32") == 1 then
-                linuxbin = ""
-            end
+            -- local linuxbin = "./"
+            -- if vim.fn.has("win32") == 1 then
+            --     linuxbin = ""
+            -- end
             floating_terminal(
                 current_filetype,
-                'make "' .. file_without_extension .. '" && ' .. linuxbin .. '"' .. file_without_extension .. '"'
+                -- 'make "' .. file_without_extension .. '" && ' .. linuxbin .. '"' .. file_without_extension .. '"'
+                'make "'
+                    .. file_without_extension
+                    .. '" && '
+                    .. '"'
+                    .. file_without_extension
+                    .. '"'
             )
         elseif current_filetype == "lua" then
             execute_with(current_filetype, current_filetype)
