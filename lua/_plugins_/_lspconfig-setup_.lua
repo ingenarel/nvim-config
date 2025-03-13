@@ -79,7 +79,7 @@ return {
             },
         }
 
-        lspconfig.ltex.setup {
+        lspconfig.ltex_plus.setup {
             settings = {
                 ltex = {
                     language = "en-GB",

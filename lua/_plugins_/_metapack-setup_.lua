@@ -15,7 +15,7 @@ return {
             "lua-language-server",
             "bash-language-server",
             "termux-language-server",
-            "ltex-ls",
+            "ltex-ls-plus",
             "yaml-language-server",
             "rust-analyzer",
             --lsp
