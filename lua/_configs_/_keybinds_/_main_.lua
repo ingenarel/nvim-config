@@ -284,6 +284,9 @@ CK_Submap("<leader>dh", ":DapStepOut<CR>", "<leader>d", { desc = "DapStepOut", w
 -- kms("<Leader>dl", function() require("dap").run_last() end)
 -- dap }}}1
 
+vim.keymap.set("n", "grn", function()
+    vim.lsp.buf.rename()
+end, { silent = true, noremap = true })
 require("pairMan").setup { keymap = "<leader>p" }
 wk.add {
     { "<leader>pha", proxy = "<leader>pah" },
