@@ -296,6 +296,7 @@ wk.add {
 CK_SetKeymap_n("<leader>D", ":Dashboard<CR>", "Dashboard")
 CK_SetKeymap_n("<leader>l", ":set wrap!<CR>", "Toggles line wrap")
 CK_SetKeymap_n("<leader><m-t>", ":InspectTree<CR>", "Inspect Treesitter tree")
+vim.keymap.set("n", "<Up>", ":<Up>", { desc = "Previous command", silent = true, noremap = true })
 
 require("_configs_._keybinds_._git_")
 require("_configs_._keybinds_._window-nav_")

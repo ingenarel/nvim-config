@@ -47,7 +47,7 @@ require("lazy").setup {
                 version = "*",
                 config = { keys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" },
             },
-            { "m4xshen/hardtime.nvim", dependencies = { "MunifTanjim/nui.nvim" }, config = true },
+            { "m4xshen/hardtime.nvim", dependencies = { "MunifTanjim/nui.nvim" }, opts = { disabled_keys = "" } },
             { "folke/persistence.nvim", event = "BufReadPre", opts = {} },
             { "imsnif/kdl.vim", ft = "kdl" },
             { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
